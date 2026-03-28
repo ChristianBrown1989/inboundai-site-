@@ -1,0 +1,71 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "/#organization",
+      "name": "InboundAI",
+      "url": "/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "/images/logo.png",
+        "width": 300,
+        "height": 60
+      },
+      "sameAs": [
+        "https://www.facebook.com/inboundai",
+        "https://www.linkedin.com/company/inboundai",
+        "https://twitter.com/inboundai"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "availableLanguage": "English"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "/#website",
+      "url": "/",
+      "name": "InboundAI",
+      "description": "AI-powered inbound marketing and lead generation solutions for local service businesses.",
+      "publisher": { "@id": "/#organization" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "/#webpage",
+      "url": "/",
+      "name": "InboundAI — AI-Powered Local SEO & Lead Generation",
+      "description": "InboundAI helps local service businesses dominate Google search with AI-driven SEO, schema markup, and automated content strategies.",
+      "isPartOf": { "@id": "/#website" },
+      "about": { "@id": "/#organization" },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "/"
+          }
+        ]
+      }
+    },
+    {
+      "@type": "Service",
+      "name": "AI-Powered Local SEO",
+      "provider": { "@id": "/#organization" },
+      "description": "Automated local SEO campaigns using AI to research competitors, generate optimized content, and build citations for local service businesses.",
+      "serviceType": "Search Engine Optimization",
+      "areaServed": {
+        "@type": "Country",
+        "name": "United States"
+      }
+    }
+  ]
+}
