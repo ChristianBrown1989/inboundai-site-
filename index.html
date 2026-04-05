@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>InboundAI — Every Missed Call Is a Job You Didn't Get</title>
+  <meta name="description" content="InboundAI answers every call 24/7, books the job on the spot, and sends you a text with the full details. Done for you. Built for HVAC and water restoration owners who run everything themselves.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #0f172a;
+      --navy-light: #1e293b;
+      --orange: #f97316;
+      --orange-dark: #ea6c0a;
+      --white: #ffffff;
+      --gray-50: #f8fafc;
+      --gray-100: #f1f5f9;
+      --gray-300: #cbd5e1;
+      --gray-500: #64748b;
+      --gray-700: #334155;
+      --red: #ef4444;
+      --green: #22c55e;
+      --radius: 12px;
+      --shadow: 0 4px 24px rgba(0,0,0,0.08);
+      --shadow-lg: 0 8px 48px rgba(0,0,0,0.12);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      color: var(--navy);
+      background: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--navy);
+      padding: 0 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .nav-logo { color: var(--white); font-weight: 800; font-size: 1.2rem; letter-spacing: -0.5px; text-decoration: none; }
+    .nav-logo span { color: var(--orange); }
+    .nav-right { display: flex; align-items: center; gap: 16px; }
+    .nav-phone { color: var(--gray-300); font-size: 0.85rem; display: none; }
+    .btn { display: inline-block; padding: 10px 20px; border-radius: 8px; font-weight: 600; font-size: 0.9rem; text-decoration: none; cursor: pointer; border: none; transition: all 0.15s; }
+    .btn-orange { background: var(--orange); color: var(--white); }
+    .btn-orange:hover { background: var(--orange-dark); transform: translateY(-1px); }
+    .btn-outline { background: transparent; color: var(--white); border: 1.5px solid rgba(255,255,255,0.3); }
+    .btn-outline:hover { border-color: var(--white); }
+    @media (min-width: 640px) { .nav-phone { display: block; } }
+
+    /* ── HERO ── */
+    #hero {
+      background: var(--navy);
+      padding: 80px 24px 100px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    #hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 60% 0%, rgba(249,115,22,0.12) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero-tag {
+      display: inline-block;
+      background: rgba(249,115,22,0.15);
+      color: var(--orange);
+      border: 1px solid rgba(249,115,22,0.3);
+      padding: 5px 14px; border-radius: 100px;
+      font-size: 0.8rem; font-weight: 600; letter-spacing: 0.5px;
+      text-transform: uppercase; margin-bottom: 24px;
+    }
+    #hero h1 {
+      color: var(--white);
+      font-size: clamp(2rem, 5vw, 3.6rem);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+      max-width: 800px; margin: 0 auto 20px;
+    }
+    #hero h1 em { color: var(--orange); font-style: normal; }
+    #hero p.hero-sub {
+      color: #94a3b8;
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      max-width: 560px; margin: 0 auto 40px;
+      line-height: 1.7;
+    }
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+    .btn-hero-primary {
+      background: var(--orange); color: var(--white);
+      padding: 16px 32px; border-radius: 10px;
+      font-weight: 700; font-size: 1rem;
+      text-decoration: none; display: inline-block;
+      transition: all 0.15s; border: none; cursor: pointer;
+      box-shadow: 0 4px 20px rgba(249,115,22,0.35);
+    }
+    .btn-hero-primary:hover { background: var(--orange-dark); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(249,115,22,0.45); }
+    .btn-hero-secondary {
+      background: rgba(255,255,255,0.08); color: var(--white);
+      padding: 16px 32px; border-radius: 10px;
+      font-weight: 600; font-size: 1rem;
+      text-decoration: none; display: inline-block;
+      transition: all 0.15s; border: 1.5px solid rgba(255,255,255,0.2);
+    }
+    .btn-hero-secondary:hover { background: rgba(255,255,255,0.14); }
+    .hero-demo-note {
+      margin-top: 28px;
+      color: #64748b; font-size: 0.85rem;
+    }
+    .hero-demo-note strong { color: #94a3b8; }
+    .hero-stats {
+      display: flex; flex-wrap: wrap; gap: 32px;
+      justify-content: center; margin-top: 64px;
+      padding-top: 48px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .stat { text-align: center; }
+    .stat-num { color: var(--white); font-size: 2.2rem; font-weight: 900; letter-spacing: -1px; }
+    .stat-num span { color: var(--orange); }
+    .stat-label { color: #64748b; font-size: 0.82rem; margin-top: 4px; }
+
+    /* ── SECTIONS ── */
+    section { padding: 80px 24px; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-tag {
+      display: inline-block;
+      color: var(--orange); font-weight: 700;
+      font-size: 0.75rem; letter-spacing: 1px;
+      text-transform: uppercase; margin-bottom: 12px;
+    }
+    h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 800; letter-spacing: -1px;
+      line-height: 1.15; margin-bottom: 16px;
+    }
+    .section-sub {
+      color: var(--gray-500); font-size: 1.05rem;
+      max-width: 560px; line-height: 1.7;
+    }
+
+    /* ── PAIN ── */
+    #pain { background: var(--gray-50); }
+    .pain-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px; margin-top: 48px;
+    }
+    .pain-card {
+      background: var(--white);
+      border: 1px solid var(--gray-100);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow);
+      transition: transform 0.15s;
+    }
+    .pain-card:hover { transform: translateY(-3px); }
+    .pain-icon { font-size: 1.8rem; margin-bottom: 12px; }
+    .pain-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
+    .pain-card p { color: var(--gray-500); font-size: 0.9rem; line-height: 1.6; }
+    .pain-cost {
+      margin-top: 12px;
+      color: var(--red); font-weight: 700; font-size: 0.85rem;
+    }
+
+    /* ── CALCULATOR ── */
+    #calculator { background: var(--navy); }
+    #calculator h2 { color: var(--white); }
+    #calculator .section-sub { color: #94a3b8; }
+    .calc-card {
+      background: var(--navy-light);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px; padding: 40px;
+      margin-top: 48px; max-width: 720px; margin-left: auto; margin-right: auto;
+    }
+    .calc-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    @media (max-width: 560px) { .calc-row { grid-template-columns: 1fr; } }
+    .calc-field { margin-bottom: 24px; }
+    .calc-field label { color: #94a3b8; font-size: 0.85rem; font-weight: 600; display: block; margin-bottom: 8px; letter-spacing: 0.3px; }
+    .calc-field input, .calc-field select {
+      width: 100%; padding: 14px 16px;
+      background: var(--navy); border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 8px; color: var(--white); font-size: 1rem; font-family: inherit;
+      outline: none; transition: border-color 0.15s;
+    }
+    .calc-field input:focus, .calc-field select:focus { border-color: var(--orange); }
+    .calc-field select option { background: var(--navy); }
+    .calc-result {
+      background: rgba(249,115,22,0.1);
+      border: 1px solid rgba(249,115,22,0.25);
+      border-radius: 12px; padding: 28px; margin-top: 8px;
+      text-align: center;
+    }
+    .calc-result-label { color: #94a3b8; font-size: 0.85rem; margin-bottom: 8px; }
+    .calc-result-number {
+      color: var(--orange); font-size: clamp(2.4rem, 5vw, 3.2rem);
+      font-weight: 900; letter-spacing: -1px; line-height: 1;
+    }
+    .calc-result-sub { color: #64748b; font-size: 0.82rem; margin-top: 8px; }
+    .calc-roi {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px;
+    }
+    @media (max-width: 480px) { .calc-roi { grid-template-columns: 1fr; } }
+    .calc-roi-item {
+      background: rgba(255,255,255,0.04);
+      border-radius: 8px; padding: 16px; text-align: center;
+    }
+    .calc-roi-item .num { color: var(--white); font-size: 1.4rem; font-weight: 800; }
+    .calc-roi-item .lbl { color: #64748b; font-size: 0.75rem; margin-top: 4px; }
+    .calc-cta { text-align: center; margin-top: 28px; }
+    .calc-close-line { color: #94a3b8; font-size: 0.9rem; margin-bottom: 16px; font-style: italic; }
+
+    /* ── BEFORE / AFTER ── */
+    #before-after { background: var(--white); }
+    .ba-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 48px;
+    }
+    @media (max-width: 640px) { .ba-grid { grid-template-columns: 1fr; } }
+    .ba-card { border-radius: 16px; padding: 32px; }
+    .ba-card.without { background: #fff1f2; border: 1px solid #fecdd3; }
+    .ba-card.with { background: #f0fdf4; border: 1px solid #bbf7d0; }
+    .ba-label {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; margin-bottom: 16px;
+    }
+    .ba-card.without .ba-label { color: var(--red); }
+    .ba-card.with .ba-label { color: #16a34a; }
+    .ba-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 20px; }
+    .ba-steps { list-style: none; }
+    .ba-steps li {
+      display: flex; gap: 12px; align-items: flex-start;
+      padding: 10px 0; border-bottom: 1px solid rgba(0,0,0,0.05);
+      font-size: 0.9rem; color: var(--gray-700); line-height: 1.5;
+    }
+    .ba-steps li:last-child { border-bottom: none; }
+    .ba-dot {
+      flex-shrink: 0; width: 22px; height: 22px;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 0.7rem; font-weight: 700; margin-top: 1px;
+    }
+    .ba-card.without .ba-dot { background: #fecdd3; color: var(--red); }
+    .ba-card.with .ba-dot { background: #bbf7d0; color: #16a34a; }
+    .ba-outcome {
+      margin-top: 20px; padding: 14px 16px;
+      border-radius: 8px; font-weight: 700; font-size: 0.9rem;
+    }
+    .ba-card.without .ba-outcome { background: #fecdd3; color: #b91c1c; }
+    .ba-card.with .ba-outcome { background: #bbf7d0; color: #15803d; }
+
+    /* ── HOW IT WORKS ── */
+    #how { background: var(--gray-50); }
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px; margin-top: 48px;
+    }
+    .step-card {
+      background: var(--white);
+      border: 1px solid var(--gray-100);
+      border-radius: var(--radius);
+      padding: 32px;
+      position: relative;
+      box-shadow: var(--shadow);
+    }
+    .step-num {
+      width: 44px; height: 44px;
+      background: var(--orange); color: var(--white);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 1.1rem; margin-bottom: 20px;
+    }
+    .step-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 10px; }
+    .step-card p { color: var(--gray-500); font-size: 0.9rem; line-height: 1.6; }
+    .step-time { margin-top: 16px; color: var(--orange); font-size: 0.8rem; font-weight: 600; }
+
+    /* ── INCLUDED ── */
+    #included { background: var(--white); }
+    .included-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
+      margin-top: 48px; align-items: start;
+    }
+    @media (max-width: 720px) { .included-grid { grid-template-columns: 1fr; } }
+    .included-list { list-style: none; }
+    .included-list li {
+      display: flex; gap: 14px; align-items: flex-start;
+      padding: 14px 0; border-bottom: 1px solid var(--gray-100);
+      font-size: 0.95rem;
+    }
+    .included-list li:last-child { border-bottom: none; }
+    .check {
+      flex-shrink: 0; width: 22px; height: 22px;
+      background: #dcfce7; color: #16a34a;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 0.7rem; font-weight: 800; margin-top: 2px;
+    }
+    .included-list strong { display: block; font-weight: 600; color: var(--navy); }
+    .included-list span { color: var(--gray-500); font-size: 0.85rem; }
+    .included-callout {
+      background: var(--navy);
+      border-radius: 16px; padding: 36px;
+    }
+    .included-callout h3 { color: var(--white); font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
+    .included-callout p { color: #94a3b8; font-size: 0.9rem; line-height: 1.7; margin-bottom: 24px; }
+    .callout-points { list-style: none; }
+    .callout-points li {
+      color: #94a3b8; font-size: 0.88rem; padding: 7px 0;
+      display: flex; gap: 10px;
+    }
+    .callout-points li::before { content: '→'; color: var(--orange); flex-shrink: 0; }
+
+    /* ── COMPARISON ── */
+    #comparison { background: var(--gray-50); }
+    .comp-table-wrap { margin-top: 48px; overflow-x: auto; }
+    .comp-table {
+      width: 100%; border-collapse: collapse;
+      background: var(--white); border-radius: 16px;
+      overflow: hidden; box-shadow: var(--shadow);
+      min-width: 560px;
+    }
+    .comp-table th {
+      padding: 18px 20px; text-align: left;
+      font-size: 0.82rem; font-weight: 700; letter-spacing: 0.3px;
+    }
+    .comp-table th:first-child { color: var(--gray-500); background: var(--gray-50); }
+    .comp-table th.us { background: var(--navy); color: var(--white); }
+    .comp-table th.us .price { color: var(--orange); font-size: 0.75rem; display: block; font-weight: 400; margin-top: 2px; }
+    .comp-table th.them { background: var(--gray-50); color: var(--gray-500); }
+    .comp-table th.them .price { font-size: 0.75rem; display: block; font-weight: 400; margin-top: 2px; }
+    .comp-table td {
+      padding: 14px 20px;
+      border-top: 1px solid var(--gray-100);
+      font-size: 0.88rem;
+    }
+    .comp-table td:first-child { color: var(--gray-700); font-weight: 500; }
+    .comp-table td.us { background: rgba(249,115,22,0.04); font-weight: 600; }
+    .comp-table td.them { color: var(--gray-500); }
+    .yes { color: var(--green); font-weight: 700; }
+    .no { color: #94a3b8; }
+    .comp-table tr:hover td { background: var(--gray-50); }
+    .comp-table tr:hover td.us { background: rgba(249,115,22,0.07); }
+
+    /* ── WHO ITS FOR ── */
+    #who { background: var(--white); }
+    .who-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 48px; }
+    @media (max-width: 640px) { .who-grid { grid-template-columns: 1fr; } }
+    .who-card { border-radius: 16px; padding: 32px; }
+    .who-card.take { background: #f0fdf4; border: 1px solid #bbf7d0; }
+    .who-card.pass { background: var(--gray-50); border: 1px solid var(--gray-100); }
+    .who-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 16px; }
+    .who-card.take h3 { color: #15803d; }
+    .who-card.pass h3 { color: var(--gray-500); }
+    .who-list { list-style: none; }
+    .who-list li { font-size: 0.9rem; padding: 7px 0; display: flex; gap: 10px; align-items: flex-start; color: var(--gray-700); }
+    .who-card.take .who-list li::before { content: '✓'; color: #16a34a; font-weight: 700; flex-shrink: 0; }
+    .who-card.pass .who-list li::before { content: '✕'; color: #94a3b8; flex-shrink: 0; }
+
+    /* ── PRICING ── */
+    #pricing { background: var(--navy); }
+    #pricing h2 { color: var(--white); }
+    #pricing .section-sub { color: #94a3b8; }
+    .pricing-card {
+      background: var(--navy-light);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px; padding: 48px;
+      max-width: 560px; margin: 48px auto 0;
+      position: relative;
+    }
+    .pricing-badge {
+      position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+      background: var(--orange); color: var(--white);
+      padding: 4px 18px; border-radius: 100px;
+      font-size: 0.78rem; font-weight: 700; white-space: nowrap;
+    }
+    .price-main {
+      text-align: center; margin-bottom: 36px;
+    }
+    .price-num { color: var(--white); font-size: 4rem; font-weight: 900; letter-spacing: -2px; line-height: 1; }
+    .price-num sup { font-size: 1.8rem; vertical-align: top; margin-top: 10px; }
+    .price-period { color: #94a3b8; font-size: 1rem; }
+    .price-anchor {
+      color: var(--orange); font-size: 0.88rem; font-weight: 600;
+      margin-top: 8px; display: block;
+    }
+    .price-includes { list-style: none; margin-bottom: 32px; }
+    .price-includes li {
+      display: flex; gap: 12px; align-items: flex-start;
+      padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.06);
+      color: #e2e8f0; font-size: 0.92rem;
+    }
+    .price-includes li:last-child { border-bottom: none; }
+    .price-check { color: var(--orange); flex-shrink: 0; font-weight: 700; }
+    .price-fine {
+      color: #64748b; font-size: 0.8rem; text-align: center; margin-top: 20px;
+    }
+
+    /* ── FAQ ── */
+    #faq { background: var(--gray-50); }
+    .faq-list { margin-top: 48px; max-width: 720px; margin-left: auto; margin-right: auto; }
+    .faq-item {
+      background: var(--white);
+      border: 1px solid var(--gray-100);
+      border-radius: 12px; margin-bottom: 12px;
+      overflow: hidden;
+    }
+    .faq-q {
+      width: 100%; text-align: left; padding: 20px 24px;
+      display: flex; justify-content: space-between; align-items: center;
+      background: none; border: none; cursor: pointer;
+      font-family: inherit; font-size: 0.95rem; font-weight: 600; color: var(--navy);
+    }
+    .faq-q .icon { flex-shrink: 0; width: 24px; height: 24px; background: var(--gray-100); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; transition: all 0.2s; color: var(--gray-500); }
+    .faq-item.open .faq-q .icon { background: var(--orange); color: var(--white); transform: rotate(45deg); }
+    .faq-a {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+      padding: 0 24px;
+    }
+    .faq-item.open .faq-a { max-height: 300px; padding: 0 24px 20px; }
+    .faq-a p { color: var(--gray-500); font-size: 0.9rem; line-height: 1.7; }
+
+    /* ── FINAL CTA ── */
+    #final-cta {
+      background: var(--orange);
+      padding: 80px 24px;
+      text-align: center;
+    }
+    #final-cta h2 { color: var(--white); max-width: 600px; margin: 0 auto 12px; }
+    #final-cta p { color: rgba(255,255,255,0.8); font-size: 1rem; max-width: 480px; margin: 0 auto 36px; }
+    .final-ctas { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+    .btn-white { background: var(--white); color: var(--orange); padding: 16px 32px; border-radius: 10px; font-weight: 700; font-size: 1rem; text-decoration: none; display: inline-block; transition: all 0.15s; }
+    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.15); }
+    .btn-white-outline { background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,0.6); padding: 16px 32px; border-radius: 10px; font-weight: 600; font-size: 1rem; text-decoration: none; display: inline-block; transition: all 0.15s; }
+    .btn-white-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.1); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy);
+      padding: 40px 24px;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    footer .footer-logo { color: var(--white); font-weight: 800; font-size: 1.1rem; margin-bottom: 8px; }
+    footer .footer-logo span { color: var(--orange); }
+    footer p { color: #475569; font-size: 0.82rem; }
+    footer a { color: #475569; text-decoration: none; }
+    footer a:hover { color: #94a3b8; }
+    .footer-links { display: flex; gap: 24px; justify-content: center; margin: 16px 0; flex-wrap: wrap; }
+
+    /* ── INTELLIGENCE ── */
+    #intelligence { background: var(--navy); }
+    #intelligence h2 { color: var(--white); }
+    #intelligence .section-sub { color: #94a3b8; }
+    .intel-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
+      margin-top: 48px; align-items: start;
+    }
+    @media (max-width: 720px) { .intel-grid { grid-template-columns: 1fr; } }
+    .intel-timeline { list-style: none; }
+    .intel-timeline li {
+      display: flex; gap: 20px; align-items: flex-start; margin-bottom: 32px;
+    }
+    .intel-timeline li:last-child { margin-bottom: 0; }
+    .intel-dot {
+      flex-shrink: 0; width: 40px; height: 40px;
+      border: 2px solid var(--orange); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--orange); font-weight: 800; font-size: 0.85rem;
+    }
+    .intel-timeline strong { color: var(--white); display: block; font-size: 0.95rem; margin-bottom: 4px; }
+    .intel-timeline span { color: #64748b; font-size: 0.88rem; line-height: 1.6; }
+    .intel-cards { display: flex; flex-direction: column; gap: 16px; }
+    .intel-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px; padding: 20px 24px;
+    }
+    .intel-card h4 { color: var(--white); font-size: 0.95rem; font-weight: 700; margin-bottom: 6px; }
+    .intel-card p { color: #64748b; font-size: 0.85rem; line-height: 1.6; }
+    .intel-card .intel-tag { color: var(--orange); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 8px; display: block; }
+
+    /* ── PMF ── */
+    #pmf { background: var(--white); }
+    .pmf-inner {
+      max-width: 840px; margin: 0 auto;
+      background: var(--gray-50); border-radius: 20px; padding: 48px;
+      border: 1px solid var(--gray-100);
+    }
+    .pmf-inner h2 { margin-bottom: 16px; }
+    .pmf-inner p { color: var(--gray-500); font-size: 0.95rem; line-height: 1.8; margin-bottom: 16px; }
+    .pmf-inner p:last-of-type { margin-bottom: 0; }
+    .pmf-inner strong { color: var(--navy); }
+    .spots-banner {
+      background: var(--navy);
+      border-radius: 12px; padding: 20px 24px;
+      display: flex; align-items: center; gap: 16px;
+      margin-top: 28px; flex-wrap: wrap;
+    }
+    .spots-dot { width: 12px; height: 12px; background: var(--orange); border-radius: 50%; flex-shrink: 0; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+    .spots-text { color: var(--white); font-size: 0.9rem; flex: 1; }
+    .spots-text strong { color: var(--orange); }
+
+    /* ── MOBILE STICKY CTA ── */
+    .mobile-cta {
+      display: none;
+      position: fixed; bottom: 0; left: 0; right: 0;
+      background: var(--white);
+      border-top: 1px solid var(--gray-100);
+      padding: 12px 16px;
+      z-index: 99;
+      gap: 10px;
+    }
+    .mobile-cta a { flex: 1; text-align: center; padding: 13px; border-radius: 8px; font-weight: 700; font-size: 0.88rem; text-decoration: none; }
+    .mobile-cta .m-call { background: var(--gray-100); color: var(--navy); }
+    .mobile-cta .m-book { background: var(--orange); color: var(--white); }
+    @media (max-width: 768px) { .mobile-cta { display: flex; } body { padding-bottom: 72px; } }
+
+    /* ── UTILITIES ── */
+    .text-center { text-align: center; }
+    .mt-4 { margin-top: 16px; }
+    .mt-8 { margin-top: 32px; }
+
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Inbound<span>AI</span></a>
+  <div class="nav-right">
+    <span class="nav-phone">Demo: (832) 281-5911</span>
+    <a href="https://calendly.com/inboundai/20min" class="btn btn-outline" target="_blank">Book a Call</a>
+    <a href="https://calendly.com/inboundai/20min" class="btn btn-orange" target="_blank">Get Started</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-tag">Built for HVAC &amp; Water Restoration Owners</div>
+    <h1>Every Missed Call Is a Job<br><em>You Didn't Get.</em></h1>
+    <p class="hero-sub">You're on the truck. It's July. Your phone rings. That call is worth $800 — and you can't answer it. We do. 24/7. No voicemail. No missed jobs.</p>
+    <div class="hero-ctas">
+      <a href="tel:+18322815911" class="btn-hero-primary">📞 Call (832) 281-5911 — Hear It Live</a>
+      <a href="https://calendly.com/inboundai/20min" class="btn-hero-secondary" target="_blank">Book a 20-Min Call →</a>
+    </div>
+    <p class="hero-demo-note">That number is a live AI system. <strong>Call it and hear exactly what your customers would hear.</strong></p>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num"><span>$</span>88K</div>
+        <div class="stat-label">Average annual revenue lost<br>from missed calls — HVAC</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">31<span>%</span></div>
+        <div class="stat-label">Of HVAC calls come in<br>after business hours</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num"><span>1-</span>2<span>x</span></div>
+        <div class="stat-label">Emergency jobs recovered<br>to pay for a full year</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">2<span>min</span></div>
+        <div class="stat-label">Average time from call to<br>text alert on your phone</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAIN -->
+<section id="pain">
+  <div class="container">
+    <span class="section-tag">Sound Familiar?</span>
+    <h2>You're the guy whose phone<br><em>IS</em> the business.</h2>
+    <p class="section-sub">You're not losing jobs because you're bad at what you do. You're losing them because you can't physically answer every call.</p>
+    <div class="pain-grid">
+      <div class="pain-card">
+        <div class="pain-icon">🥵</div>
+        <h3>The July Problem</h3>
+        <p>It's 105 degrees. You're mid-job, dripping sweat, both hands under the unit. Your phone rings twice and goes to voicemail. That customer already called the next company.</p>
+        <div class="pain-cost">Est. cost: $600–$1,200 per missed call</div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">🌙</div>
+        <h3>The 3am Burst Pipe</h3>
+        <p>A homeowner has water pouring through their ceiling. They're calling every restoration company they can find. Whoever answers first gets a $4,000 job. Your phone is on silent.</p>
+        <div class="pain-cost">Est. cost: $4,000–$7,000 per missed call</div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">📱</div>
+        <h3>The Voicemail Trap</h3>
+        <p>They leave a voicemail. You call back 2 hours later. They already booked someone else. It didn't matter that you would have done better work — they needed someone now.</p>
+        <div class="pain-cost">20–30% of callers don't call back</div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">👨‍👩‍👧</div>
+        <h3>The After-Hours Gap</h3>
+        <p>Your wife answers, kids are in the background, she takes a message wrong. Or nobody answers and the call goes straight to a competitor who's running a 24/7 AI system that books instantly.</p>
+        <div class="pain-cost">31% of calls come outside business hours</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROI CALCULATOR -->
+<section id="calculator">
+  <div class="container text-center">
+    <span class="section-tag">ROI Calculator</span>
+    <h2>Find out exactly what<br>you're leaving on the table.</h2>
+    <p class="section-sub" style="margin: 0 auto;">Enter your numbers. Takes 30 seconds. Most owners are surprised.</p>
+    <div class="calc-card">
+      <div class="calc-row">
+        <div class="calc-field">
+          <label>Your average job value ($)</label>
+          <input type="number" id="jobValue" value="600" min="100" max="50000" oninput="calcROI()">
+        </div>
+        <div class="calc-field">
+          <label>Estimated missed calls per week</label>
+          <input type="number" id="missedCalls" value="5" min="1" max="100" oninput="calcROI()">
+        </div>
+      </div>
+      <div class="calc-field">
+        <label>Your industry</label>
+        <select id="industry" onchange="calcROI()">
+          <option value="hvac">HVAC</option>
+          <option value="water">Water Restoration</option>
+        </select>
+      </div>
+      <div class="calc-result">
+        <div class="calc-result-label">Annual revenue at risk from missed calls</div>
+        <div class="calc-result-number" id="annualLoss">$156,000</div>
+        <div class="calc-result-sub">Based on a 60% caller answer-to-book rate</div>
+      </div>
+      <div class="calc-roi">
+        <div class="calc-roi-item">
+          <div class="num" id="monthlyLoss">$13,000</div>
+          <div class="lbl">Monthly revenue at risk</div>
+        </div>
+        <div class="calc-roi-item">
+          <div class="num" id="roiReturn">17x</div>
+          <div class="lbl">ROI vs InboundAI at $750/mo</div>
+        </div>
+        <div class="calc-roi-item">
+          <div class="num" id="jobsLost">260</div>
+          <div class="lbl">Jobs lost per year</div>
+        </div>
+        <div class="calc-roi-item">
+          <div class="num" id="payback">1 job</div>
+          <div class="lbl">To cover 1 month of InboundAI</div>
+        </div>
+      </div>
+      <div class="calc-cta">
+        <p class="calc-close-line" id="closeQuote">"Does that number surprise you?"</p>
+        <a href="https://calendly.com/inboundai/20min" class="btn-hero-primary" target="_blank">Let's talk about recovering it →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BEFORE / AFTER -->
+<section id="before-after">
+  <div class="container">
+    <span class="section-tag">What Actually Happens</span>
+    <h2>The difference between a missed call<br>and a booked job.</h2>
+    <p class="section-sub">This is what happens on a Tuesday night at 10pm when a homeowner's AC dies.</p>
+    <div class="ba-grid">
+      <div class="ba-card without">
+        <div class="ba-label">❌ Without InboundAI</div>
+        <h3>The call that got away</h3>
+        <ul class="ba-steps">
+          <li><div class="ba-dot">1</div>Homeowner calls your number. You're asleep or unavailable.</li>
+          <li><div class="ba-dot">2</div>Rings 4 times. Goes to voicemail.</li>
+          <li><div class="ba-dot">3</div>They hang up without leaving a message. Or they leave one — but they're already calling the next company.</li>
+          <li><div class="ba-dot">4</div>Competitor picks up. Books the job on the spot.</li>
+          <li><div class="ba-dot">5</div>You wake up, check your phone. Missed call. No message. Job gone.</li>
+        </ul>
+        <div class="ba-outcome">💸 $800 job went to your competitor. Again.</div>
+      </div>
+      <div class="ba-card with">
+        <div class="ba-label">✅ With InboundAI</div>
+        <h3>The call that became a job</h3>
+        <ul class="ba-steps">
+          <li><div class="ba-dot">1</div>Homeowner calls your number. Alex answers in 2 rings, 24/7.</li>
+          <li><div class="ba-dot">2</div>Alex qualifies the situation — type of issue, address, urgency.</li>
+          <li><div class="ba-dot">3</div>Offers a booking slot. Customer confirms. Job is locked in during the call.</li>
+          <li><div class="ba-dot">4</div>You get a text: name, number, address, issue, priority level — all of it.</li>
+          <li><div class="ba-dot">5</div>You wake up. Job's already in your calendar. Customer got a confirmation text too.</li>
+        </ul>
+        <div class="ba-outcome">💰 $800 job. Booked while you slept.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="container">
+    <span class="section-tag">How It Works</span>
+    <h2>Up and running in 2 weeks.<br>You don't touch anything.</h2>
+    <p class="section-sub">We build it. We run it. We fix it. You just get the jobs.</p>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <h3>We Build Your System</h3>
+        <p>We set up an AI that knows your business name, your services, your service area, your emergency protocols, and your team's names. Not a generic template — yours.</p>
+        <div class="step-time">Week 1–2 — We handle everything</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <h3>It Goes Live</h3>
+        <p>Forward your business line to your InboundAI number. From that moment, every call is answered. Qualified. Booked if possible. And texted to you with full details — in under 2 minutes.</p>
+        <div class="step-time">Week 3 — Flip the switch</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <h3>You Get the Report</h3>
+        <p>Every Monday morning, a report lands in your inbox: calls handled, jobs booked, revenue recovered. You see exactly what it's doing for you — in dollars, not dashboards.</p>
+        <div class="step-time">Ongoing — Every Monday</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INCLUDED -->
+<section id="included">
+  <div class="container">
+    <span class="section-tag">What's Included</span>
+    <h2>This is not software you set up yourself.</h2>
+    <p class="section-sub">Every other service gives you a tool and walks away. We build it, run it, and stay available for changes — every month.</p>
+    <div class="included-grid">
+      <ul class="included-list">
+        <li>
+          <div class="check">✓</div>
+          <div><strong>Custom-built AI for your business</strong><span>Your name, services, service area, emergency protocols. Not a template.</span></div>
+        </li>
+        <li>
+          <div class="check">✓</div>
+          <div><strong>24/7 answering, always</strong><span>Holidays, 3am, mid-July, mid-job. Every call answered.</span></div>
+        </li>
+        <li>
+          <div class="check">✓</div>
+          <div><strong>Instant owner text alert</strong><span>Name, number, address, issue, priority — texted to you within 2 minutes of every call.</span></div>
+        </li>
+        <li>
+          <div class="check">✓</div>
+          <div><strong>Caller confirmation text</strong><span>Every caller gets a text confirming the details. Reduces no-shows.</span></div>
+        </li>
+        <li>
+          <div class="check">✓</div>
+          <div><strong>Calendar booking on the call</strong><span>AI offers time slots and locks in the appointment before they hang up.</span></div>
+        </li>
+        <li>
+          <div class="check">✓</div>
+          <div><strong>Emergency escalation</strong><span>Critical situations flagged immediately. Different alert, different urgency, direct transfer attempt.</span></div>
+        </li>
+        <li>
+          <div class="check">✓</div>
+          <div><strong>Call log — every call, forever</strong><span>Searchable call history with recordings, transcripts, and full intake data.</span></div>
+        </li>
+        <li>
+          <div class="check">✓</div>
+          <div><strong>Weekly revenue report</strong><span>Every Monday: calls handled, jobs booked, revenue recovered. In dollars.</span></div>
+        </li>
+        <li>
+          <div class="check">✓</div>
+          <div><strong>Spanish language</strong><span>Alex answers in English and Spanish. Critical for Texas and South Florida markets.</span></div>
+        </li>
+      </ul>
+      <div class="included-callout">
+        <h3>Direct line to the person who built it.</h3>
+        <p>Not a support ticket. Not a chatbot. A direct line to me — Christian — who built your system, knows how it's configured, and will fix anything same day.</p>
+        <ul class="callout-points">
+          <li>Script change? Done within 24 hours.</li>
+          <li>New service area? Updated same day.</li>
+          <li>Emergency protocol change? Immediate.</li>
+          <li>Monthly strategy call to review what's working.</li>
+          <li>Adjust based on real call data every month.</li>
+        </ul>
+        <br>
+        <a href="https://calendly.com/inboundai/20min" class="btn-hero-primary" target="_blank">Book a 20-Min Call →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON -->
+<section id="comparison">
+  <div class="container">
+    <span class="section-tag">How We Compare</span>
+    <h2>Why $750 is the cheaper option.</h2>
+    <p class="section-sub">HVAC Frontdesk charges $299 for a generic product you configure yourself. Here's the full picture.</p>
+    <div class="comp-table-wrap">
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th class="us">InboundAI<span class="price">$750/month</span></th>
+            <th class="them">HVAC Frontdesk<span class="price">$299/month</span></th>
+            <th class="them">Generic AI Tool<span class="price">Varies</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>24/7 call answering</td>
+            <td class="us"><span class="yes">✓ Always on</span></td>
+            <td class="them"><span class="yes">✓</span></td>
+            <td class="them"><span class="yes">✓</span></td>
+          </tr>
+          <tr>
+            <td>Custom-built for YOUR business</td>
+            <td class="us"><span class="yes">✓ Your name, services, area</span></td>
+            <td class="them"><span class="no">✕ Generic HVAC template</span></td>
+            <td class="them"><span class="no">✕ Generic template</span></td>
+          </tr>
+          <tr>
+            <td>Done-for-you setup</td>
+            <td class="us"><span class="yes">✓ We build everything</span></td>
+            <td class="them"><span class="no">✕ You configure it yourself</span></td>
+            <td class="them"><span class="no">✕ You configure it yourself</span></td>
+          </tr>
+          <tr>
+            <td>Books job on the call</td>
+            <td class="us"><span class="yes">✓ Offers slots, confirms booking</span></td>
+            <td class="them"><span class="no">✕ Captures info only</span></td>
+            <td class="them"><span class="no">✕ Captures info only</span></td>
+          </tr>
+          <tr>
+            <td>Instant owner SMS with full context</td>
+            <td class="us"><span class="yes">✓ Name, number, address, priority</span></td>
+            <td class="them"><span class="no">✕ Not specified</span></td>
+            <td class="them"><span class="no">✕ Not specified</span></td>
+          </tr>
+          <tr>
+            <td>Spanish language</td>
+            <td class="us"><span class="yes">✓ English + Spanish</span></td>
+            <td class="them"><span class="no">✕</span></td>
+            <td class="them"><span class="no">✕</span></td>
+          </tr>
+          <tr>
+            <td>Water restoration support</td>
+            <td class="us"><span class="yes">✓ HVAC + water damage</span></td>
+            <td class="them"><span class="no">✕ HVAC only</span></td>
+            <td class="them"><span class="no">✕ Generic</span></td>
+          </tr>
+          <tr>
+            <td>Monthly revenue report</td>
+            <td class="us"><span class="yes">✓ Calls, jobs, dollars recovered</span></td>
+            <td class="them"><span class="no">✕</span></td>
+            <td class="them"><span class="no">✕</span></td>
+          </tr>
+          <tr>
+            <td>Direct human contact for changes</td>
+            <td class="us"><span class="yes">✓ Direct line, same-day updates</span></td>
+            <td class="them"><span class="no">✕ Support ticket</span></td>
+            <td class="them"><span class="no">✕ Support ticket</span></td>
+          </tr>
+          <tr>
+            <td>Post-job follow-up automation</td>
+            <td class="us"><span class="yes">✓ Reviews, referrals, reactivation</span></td>
+            <td class="them"><span class="no">✕</span></td>
+            <td class="them"><span class="no">✕</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="text-align:center; color: var(--gray-500); font-size: 0.85rem; margin-top: 20px;">
+      "HVAC Frontdesk answers your calls. We turn calls into booked jobs, reviews, and referrals — and show you the dollar amount every month. One extra job recovers the $451 difference immediately."
+    </p>
+  </div>
+</section>
+
+<!-- WHO ITS FOR -->
+<section id="who">
+  <div class="container">
+    <span class="section-tag">Who It's For</span>
+    <h2>We work with a small number of owners.<br>Here's who qualifies.</h2>
+    <p class="section-sub">We cap at 20 clients. We want partners, not volume. Here's who we take — and who we pass on.</p>
+    <div class="who-grid">
+      <div class="who-card take">
+        <h3>✅ We work with owners who...</h3>
+        <ul class="who-list">
+          <li>Run an HVAC or water restoration company, 1–9 people</li>
+          <li>Answer their own calls — their cell IS the business</li>
+          <li>Are actively frustrated with missed calls or voicemail</li>
+          <li>Do $300k+ in annual revenue and want to grow</li>
+          <li>Use Housecall Pro, Jobber, or nothing</li>
+          <li>Want a done-for-you system, not another app to manage</li>
+        </ul>
+      </div>
+      <div class="who-card pass">
+        <h3>✕ We pass on owners who...</h3>
+        <ul class="who-list">
+          <li>Have a dedicated receptionist or CSR on staff</li>
+          <li>Operate a franchise (SERVPRO, Aire Serv, One Hour Air)</li>
+          <li>Are on ServiceTitan with integrated call handling</li>
+          <li>Are winding down or planning to sell in 1–2 years</li>
+          <li>Want to "try it for free" with no commitment</li>
+          <li>Want to negotiate the price down</li>
+        </ul>
+      </div>
+    </div>
+    <p style="text-align:center; color: var(--gray-500); margin-top: 32px; font-size: 0.9rem; max-width: 560px; margin-left: auto; margin-right: auto;">
+      <em>"If you're the guy whose phone IS the business — you're exactly who I built this for."</em>
+    </p>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="container text-center">
+    <span class="section-tag" style="color: var(--orange);">Pricing</span>
+    <h2>Simple. No contracts. No surprises.</h2>
+    <p class="section-sub" style="margin: 0 auto; color: #94a3b8;">"$750/month. One emergency job pays for 3 months."</p>
+    <div class="pricing-card">
+      <div class="pricing-badge">Most owners see ROI in week 1</div>
+      <div class="price-main">
+        <div class="price-num"><sup>$</sup>750</div>
+        <div class="price-period">/month · No setup fee · Cancel with 30 days notice</div>
+        <span class="price-anchor">HVAC: one $600 repair = covers nearly a full month. Water restoration: one $4k job = covers 5 months.</span>
+      </div>
+      <ul class="price-includes">
+        <li><span class="price-check">✓</span> Custom AI built for your business (week 1–2)</li>
+        <li><span class="price-check">✓</span> 24/7 answering on your dedicated number</li>
+        <li><span class="price-check">✓</span> Instant SMS alert after every call</li>
+        <li><span class="price-check">✓</span> Calendar booking on the call</li>
+        <li><span class="price-check">✓</span> Emergency escalation protocol</li>
+        <li><span class="price-check">✓</span> Full call log with recordings</li>
+        <li><span class="price-check">✓</span> Weekly revenue report — every Monday</li>
+        <li><span class="price-check">✓</span> English + Spanish</li>
+        <li><span class="price-check">✓</span> Direct line for same-day changes</li>
+        <li><span class="price-check">✓</span> Monthly 15-min strategy call</li>
+      </ul>
+      <a href="https://buy.stripe.com/8x2eVe3TP1o5bl93znds400" class="btn-hero-primary" style="width:100%; text-align:center; display:block;" target="_blank">Get Started — $750/month</a>
+      <p class="price-fine">Or <a href="https://calendly.com/inboundai/20min" style="color: var(--orange);" target="_blank">book a 20-minute call first</a> — no pressure, no pitch deck. Just a conversation about your numbers.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <span class="section-tag">Common Questions</span>
+    <h2 class="text-center">You're going to ask these.<br>Here are the answers.</h2>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)">
+          Will my customers know they're talking to an AI?
+          <span class="icon">+</span>
+        </button>
+        <div class="faq-a"><p>Alex identifies as a virtual assistant for your business — never pretends to be a human. The script is designed to be natural and helpful. Most callers focus on getting their problem solved, not whether they're talking to a person or an AI. And if they ask directly, Alex answers honestly and offers to have a human call back.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)">
+          Do I need to change my phone number?
+          <span class="icon">+</span>
+        </button>
+        <div class="faq-a"><p>No. You keep your existing number. You simply forward calls to your InboundAI number — either always-on (24/7 AI) or on-no-answer (AI picks up after 4 rings). We walk you through setup on a 15-minute call. Most owners use call forwarding on their cell or a VoIP line like OpenPhone.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)">
+          How long does setup take?
+          <span class="icon">+</span>
+        </button>
+        <div class="faq-a"><p>1–2 weeks from signing to live. Week 1: we collect your details and build the system. Week 2: test calls, refinements, and you approve it. Week 3: you flip the forwarding switch and it's live. You don't touch anything technical.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)">
+          What happens if the AI can't answer a question?
+          <span class="icon">+</span>
+        </button>
+        <div class="faq-a"><p>Alex is trained to handle your most common call types and FAQs. For anything outside that — pricing specifics, scheduling edge cases, unusual requests — Alex captures the caller's information and tells them a team member will follow up. You never lose the lead.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)">
+          What if I want to change the script?
+          <span class="icon">+</span>
+        </button>
+        <div class="faq-a"><p>Text or call me directly. Changes are made same day. No ticket, no waiting. This is one of the core reasons clients pay $750 instead of $299 — there's a human who knows your system and responds immediately.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)">
+          Can I cancel anytime?
+          <span class="icon">+</span>
+        </button>
+        <div class="faq-a"><p>Yes. 30 days written notice. No long-term contract, no cancellation fee. We're confident enough in the results that we don't need to trap you in an agreement.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)">
+          Does it work for water restoration, not just HVAC?
+          <span class="icon">+</span>
+        </button>
+        <div class="faq-a"><p>Yes — and it's one of our core specializations. Alex is trained on water damage scenarios: burst pipes, flooding, sewage backup, mold calls, insurance carrier intake. The emergency routing is tuned specifically for restoration — where a 3am burst pipe call can be a $4,000–$7,000 job and every minute of response time matters.</p></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- INTELLIGENCE ENGINE -->
+<section id="intelligence">
+  <div class="container">
+    <span class="section-tag" style="color:var(--orange);">The Intelligence Engine</span>
+    <h2>The longer you work with us,<br>the smarter your business gets.</h2>
+    <p class="section-sub" style="color:#94a3b8;">Every other service installs their system and disappears. We run a live intelligence loop — on your market, your competitors, and your own call data — and feed it back into making your system more effective every month.</p>
+    <div class="intel-grid">
+      <ul class="intel-timeline">
+        <li>
+          <div class="intel-dot">1</div>
+          <div>
+            <strong>Month 1 — Your AI learns your business</strong>
+            <span>We analyze your first real calls. What questions callers ask. What hesitations come up. What script lines work. We refine based on real data, not guesses.</span>
+          </div>
+        </li>
+        <li>
+          <div class="intel-dot">3</div>
+          <div>
+            <strong>Month 3 — Choke point detection</strong>
+            <span>We identify exactly where revenue is leaking. "Your Friday 5–9pm calls convert at 19% vs 64% all other times — that's 8 jobs per month in one window." We fix it.</span>
+          </div>
+        </li>
+        <li>
+          <div class="intel-dot">6</div>
+          <div>
+            <strong>Month 6 — Market intelligence active</strong>
+            <span>Weekly: we scan every major competitor for pricing changes, new features, and messaging shifts. You get a brief before they've had time to run the campaign. You're never caught flat-footed.</span>
+          </div>
+        </li>
+        <li>
+          <div class="intel-dot">12</div>
+          <div>
+            <strong>Year 1 — Predictive recommendations</strong>
+            <span>Real patterns from your market, your call history, and industry data combined. "HVAC owners in Texas who run a spring tune-up campaign in April recover an average of 34% more revenue in Q3." Applied to your business specifically.</span>
+          </div>
+        </li>
+      </ul>
+      <div class="intel-cards">
+        <div class="intel-card">
+          <span class="intel-tag">📡 Competitor Monitoring</span>
+          <h4>We watch your competition so you don't have to.</h4>
+          <p>Every week, we scan competitor websites, pricing pages, and feature announcements. If HVAC Frontdesk changes their pricing or adds a feature, you get a brief within 48 hours — and a recommendation on how to respond.</p>
+        </div>
+        <div class="intel-card">
+          <span class="intel-tag">📊 Market Pain Mining</span>
+          <h4>We read what contractors complain about online.</h4>
+          <p>Reddit, Google reviews, industry forums — we pull real customer pain language weekly. What they're frustrated with. What made them switch providers. What they wish existed. This feeds directly into your script and marketing.</p>
+        </div>
+        <div class="intel-card">
+          <span class="intel-tag">📈 Call Pattern Analysis</span>
+          <h4>Your call data becomes a strategy document.</h4>
+          <p>We analyze your call log monthly: peak times, conversion rates by call type, most common objections, which job types you're losing vs winning. Claude identifies the patterns. We translate them into actions.</p>
+        </div>
+        <div class="intel-card">
+          <span class="intel-tag">🎯 Market Gap Alerts</span>
+          <h4>We tell you when a gap opens up.</h4>
+          <p>When a competitor weakens, raises prices, or gets bad reviews — you're the first to know. We score market gaps by severity and vacancy, and flag the ones you can own immediately.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PMF -->
+<section id="pmf">
+  <div class="container">
+    <div class="pmf-inner">
+      <span class="section-tag">Who We Are — And Who We're Not</span>
+      <h2>We don't work with everyone.<br>That's the point.</h2>
+      <p>InboundAI is built for <strong>one specific owner</strong>: the HVAC or water restoration operator running a 1–9 person shop, answering their own calls, and losing jobs to voicemail every week. That owner exists in every city in America and is almost completely ignored by the industry.</p>
+      <p>Every AI receptionist product on the market is a SaaS tool you configure yourself, built for a generic "service business." They're not thinking about the guy who's under an AC unit in 105-degree heat in Dallas in July. We are.</p>
+      <p>We are <strong>not</strong> a SaaS product. We are a done-for-you service. We build your system. We run it. We stay available for changes. We send you the report. You never touch anything technical. And because we run it like a real service — not a subscription that auto-renews — we cap our client base at 20 owners.</p>
+      <p><strong>20 clients. Done-for-you. Partner-level attention. That's the model.</strong> If you're looking for a cheap tool to plug in yourself, HVAC Frontdesk exists. If you want someone to build and run your entire front-end revenue system while you focus on the work — we're the call.</p>
+      <div class="spots-banner">
+        <div class="spots-dot"></div>
+        <div class="spots-text">We are currently accepting <strong>new clients</strong>. Once we reach 20, this page will say waitlist only. We are intentionally small so every client gets the attention the model requires.</div>
+        <a href="https://calendly.com/inboundai/20min" class="btn btn-orange" target="_blank" style="white-space:nowrap;">Book a Call →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section id="final-cta">
+  <div class="container">
+    <h2>You're already doing the hard part.<br>Stop losing the calls.</h2>
+    <p>Call the demo number right now. Hear exactly what your customers would hear. Then decide.</p>
+    <div class="final-ctas">
+      <a href="tel:+18322815911" class="btn-white">📞 Call (832) 281-5911 — Hear It Live</a>
+      <a href="https://calendly.com/inboundai/20min" class="btn-white-outline" target="_blank">Book a 20-Min Call</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Inbound<span>AI</span></div>
+  <div class="footer-links">
+    <a href="#calculator">ROI Calculator</a>
+    <a href="#comparison">Compare</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#faq">FAQ</a>
+    <a href="https://calendly.com/inboundai/20min" target="_blank">Book a Call</a>
+  </div>
+  <p>Built for HVAC and water restoration owners who run everything themselves. &nbsp;·&nbsp; <a href="#">Terms of Service</a></p>
+  <p style="margin-top:8px;">© 2026 InboundAI &nbsp;·&nbsp; inboundai@proton.me</p>
+</footer>
+
+<!-- MOBILE STICKY CTA -->
+<div class="mobile-cta">
+  <a href="tel:+18322815911" class="m-call">📞 Call Demo</a>
+  <a href="https://calendly.com/inboundai/20min" class="m-book" target="_blank">Book a Call</a>
+</div>
+
+<script>
+  // ── ROI CALCULATOR ──
+  function calcROI() {
+    const jobValue = parseFloat(document.getElementById('jobValue').value) || 0;
+    const missedPerWeek = parseFloat(document.getElementById('missedCalls').value) || 0;
+    const industry = document.getElementById('industry').value;
+
+    // 60% of callers who reach voicemail don't convert
+    const bookRate = 0.60;
+    const lostPerWeek = missedPerWeek * bookRate;
+    const monthlyLoss = lostPerWeek * 4.33 * jobValue;
+    const annualLoss = lostPerWeek * 52 * jobValue;
+    const jobsPerYear = Math.round(lostPerWeek * 52);
+    const roi = monthlyLoss > 0 ? (monthlyLoss / 750).toFixed(1) : '—';
+    const jobsToCover = jobValue > 0 ? Math.ceil(750 / jobValue) : '—';
+
+    document.getElementById('annualLoss').textContent = '$' + formatNum(annualLoss);
+    document.getElementById('monthlyLoss').textContent = '$' + formatNum(monthlyLoss);
+    document.getElementById('roiReturn').textContent = roi + 'x';
+    document.getElementById('jobsLost').textContent = jobsPerYear;
+    document.getElementById('payback').textContent = jobsToCover === 1 ? '1 job' : jobsToCover + ' jobs';
+
+    const closeLines = [
+      '"Does that number surprise you?"',
+      '"That\'s what\'s leaving your business every year. Let\'s fix it."',
+      '"One recovered call this week pays for a month of InboundAI."',
+      '"While you were reading this, your competitor answered 3 calls."'
+    ];
+    const idx = Math.floor((annualLoss / 50000)) % closeLines.length;
+    document.getElementById('closeQuote').textContent = closeLines[Math.min(idx, closeLines.length - 1)];
+  }
+
+  function formatNum(n) {
+    if (n >= 1000000) return (n/1000000).toFixed(1) + 'M';
+    if (n >= 1000) return Math.round(n/1000) + 'K';
+    return Math.round(n).toString();
+  }
+
+  // ── FAQ ACCORDION ──
+  function toggleFAQ(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // Init calculator
+  calcROI();
+</script>
+
+</body>
+</html>
