@@ -1,4 +1,4 @@
-# Weekly Master Report — 2026-04-19
+# Weekly Master Report — 2026-04-26
 
 ---
 
@@ -10,16 +10,17 @@
 
 | Check | Status | Notes |
 |-------|--------|-------|
-| Broken links | ✅ PASS | All local file references valid |
-| Title tags | ✅ PASS | Unique titles on all 11 pages |
+| Broken links | ✅ PASS | All local file references valid; footer links point to existing .html files |
+| Title tags | ✅ PASS | Unique, keyword-rich titles on all 11 pages |
 | Meta description | ✅ PASS | Present on all indexable pages |
-| Meta keywords | ❌ MISSING | Absent from all pages |
-| OG tags | ❌ CRITICAL | No og:title, og:description, og:image, og:url on any page — **unresolved from last week** |
-| Sitemap | ✅ PASS | 10 URLs, well-formed; thank-you correctly excluded (noindex) — 100% indexable coverage |
+| Meta keywords | ❌ MISSING | Absent from all pages — low SEO priority but worth adding |
+| OG tags | ❌ CRITICAL | No og:title, og:description, og:image, og:url on any page — **3rd week unresolved** |
+| Sitemap | ✅ PASS | 10 URLs, well-formed; thank-you correctly excluded — 100% indexable coverage |
 | Robots.txt | ✅ PASS | `Allow: /`, sitemap reference present |
-| Schema markup | ⚠️ PARTIAL | LocalBusiness + EmergencyService + FAQPage on index.html ✅; EmergencyService on 9 service pages ✅; **sewage-backup-jacksonville.html still missing schema** ❌ — unresolved from last week |
-| Image optimization | ✅ N/A | No img tags — emoji/SVG/CSS only |
+| Schema markup | ✅ PASS | LocalBusiness + EmergencyService + FAQPage (5 Q&As) + AggregateRating on index.html |
+| Image optimization | ✅ N/A | No `<img>` tags — emoji/SVG/CSS only |
 | Render-blocking scripts | ✅ PASS | No external JS; JSON-LD only (non-blocking) |
+| Page speed hints | ✅ CLEAN | Single CSS file, no external fonts, inline SVGs — lean stack |
 
 ---
 
@@ -29,16 +30,16 @@
 
 | Check | Status | Notes |
 |-------|--------|-------|
-| Broken links | ✅ PASS | All local file references valid |
+| Broken links | ✅ PASS | All footer links use #section anchors — no broken file refs |
 | Title tags | ✅ PASS | Unique titles on all 15 pages |
 | Meta description | ✅ PASS | Present on all 15 pages |
 | Meta keywords | ❌ MISSING | Absent from all pages |
-| OG tags | ❌ CRITICAL | No OG tags on any page — **unresolved from last week** |
-| Sitemap | ❌ CRITICAL | **66.7% coverage (10/15).** Missing: `hardwood-floor-water-damage-nashville`, `insurance-claim-water-damage-nashville`, `commercial-water-damage-nashville`, `water-damage-restoration-cost-nashville` — **unresolved from last week** |
+| OG tags | ❌ CRITICAL | No OG tags on any page — **3rd week unresolved** |
+| Sitemap | ❌ CRITICAL | **71.4% coverage (10/14 indexable pages).** Missing: `commercial-water-damage-nashville`, `hardwood-floor-water-damage-nashville`, `insurance-claim-water-damage-nashville`, `water-damage-restoration-cost-nashville` — **3rd week unresolved** |
 | Robots.txt | ✅ PASS | `Allow: /`, sitemap reference present |
-| Schema markup | ⚠️ PARTIAL | EmergencyService + FAQPage on index ✅; inner pages have EmergencyService ✅; some pages still missing schema |
-| Image optimization | ✅ N/A | No img tags |
-| Render-blocking scripts | ✅ PASS | No external JS |
+| Schema markup | ✅ PASS | EmergencyService + FAQPage (5 Q&As) + AggregateRating on index.html |
+| Image optimization | ✅ N/A | No `<img>` tags |
+| Render-blocking scripts | ✅ PASS | No external JS or font CDN calls |
 
 ---
 
@@ -48,92 +49,95 @@
 
 | Check | Status | Notes |
 |-------|--------|-------|
-| Broken links | ✅ PASS | All local file references valid |
-| Title tags | ✅ PASS | Unique titles on all 10 pages |
-| Meta description | ✅ PASS | Present on 9/10 (thank-you missing — acceptable, noindex) |
+| Broken links | ✅ PASS | All footer links use #section anchors — no broken file refs |
+| Title tags | ✅ PASS | Unique, city-specific titles on all 10 pages |
+| Meta description | ✅ PASS | Present on all 10 pages |
 | Meta keywords | ❌ MISSING | Absent from all pages |
-| OG tags | ❌ CRITICAL | No og:title, og:description, og:image, og:url on any page — **unresolved from last week** |
+| OG tags | ❌ CRITICAL | No og:title, og:description, og:image, og:url on any page — **3rd week unresolved** |
 | Sitemap | ✅ PASS | 9/9 indexable pages covered — 100% coverage |
 | Robots.txt | ✅ PASS | `Allow: /`, sitemap reference present |
-| Schema markup | ✅ PASS | EmergencyService + FAQPage + AggregateRating (4.9★, 98 reviews) on index.html |
-| Image optimization | ✅ N/A | No img tags — SVG data URI only |
-| Render-blocking scripts | ✅ PASS | No external JS |
-| Content accuracy | ⚠️ WARNING | Pages reference "Nashville" in body copy instead of "Cincinnati" (index.html ~lines 138, 230–232) — damages local SEO credibility |
-| Form compatibility | ⚠️ WARNING | Contact form uses `data-netlify="true"` but site is on Cloudflare Workers — form submissions may be silently failing |
+| Schema markup | ✅ PASS | EmergencyService + FAQPage (5 Q&As) + AggregateRating (4.9★, 98 reviews) on index.html |
+| Image optimization | ✅ N/A | No `<img>` tags |
+| Render-blocking scripts | ✅ PASS | No external JS or font CDN calls |
+| **Copy errors** | ❌ BUG | index.html contains "Nashville" in 4 places: hero badge ("Nashville & Surrounding Areas"), section label "Why Nashville Trusts Us", body copy "every Nashville homeowner", section label "Real Nashville Homeowners" — all should say **Cincinnati** — **3rd week unresolved** |
+| **Malformed HTML** | ❌ NEW | `<span itemprop="addressLocality": "Cincinnati</span>` — colon instead of `=` sign, attribute never closes. Invalid microdata. Fix: `<span itemprop="addressLocality">Cincinnati</span>` |
+| **Form handler** | ⚠️ WARNING | Contact form uses `data-netlify="true"` on a Cloudflare Workers deployment — form submissions may be silently dropping. Verify or swap to Formspree. |
 
 ---
 
 ### HAKD (hakd.app) — Next.js / Vercel
 
-**Routes found:** 11 App Router page files — homepage, /about, /articles, /articles/[slug], /articles/category/[category] (7 categories), /directory, /directory/[slug], /directory/category/[category] (7 categories), /directory/city/[city] (18 cities), /directory/city/[city]/[category] (~126 combos). Dynamic sitemap generates 180+ URLs.
+**App Router structure:** homepage, /about, /articles, /articles/[slug], /articles/category/[7 categories], /directory, /directory/[slug], /directory/category/[7 categories], /directory/city/[18 cities], /directory/city/[city]/[category] (~126 combos). Dynamic sitemap.js generates 180+ URLs from Supabase.
 
 | Check | Status | Notes |
 |-------|--------|-------|
-| Broken links | ✅ PASS | All internal Next.js routes valid |
-| Title tags | ✅ PASS | Dynamic metadata via `generateMetadata()` on all routes |
-| Meta description | ✅ PASS | Present on all routes including dynamic |
-| OG tags (title/desc/url) | ✅ PASS | og:title, og:description, og:url set in root layout + per-page |
-| OG image | ❌ CRITICAL | `og:image` NOT configured; `/public/og-image.png` does NOT exist — social shares show blank preview — **unresolved from last week** |
-| Sitemap | ✅ PASS | Dynamic `app/sitemap.js` covering all routes |
-| Robots.txt | ✅ PASS | `app/robots.js` — allows all crawlers including AI bots (Perplexity, GPTBot, ClaudeBot, Google-Extended) |
-| Schema markup | ⚠️ PARTIAL | WebSite + Person on homepage; Article/FAQPage/BreadcrumbList on content pages ✅; **No LocalBusiness or Organization schema on homepage** ❌ |
-| Image optimization | ✅ PASS | Text-first design; no unoptimized images |
-| Render-blocking scripts | ✅ PASS | Next.js handles bundling optimally |
-| Public assets | ⚠️ WARNING | `/public/` contains only Google Search Console verification file — no favicon, no og-image |
+| Broken links | ✅ PASS | All internal Next.js routes valid; dynamic routes resolved via Supabase data |
+| Title tags | ✅ PASS | Root metadata + dynamic `generateMetadata()` on all routes |
+| Meta description | ✅ PASS | Present on all routes |
+| Meta keywords | N/A | Not used in Next.js Metadata API — acceptable for modern SEO |
+| OG title / description / url | ✅ PASS | Configured in layout.js `openGraph` object |
+| **OG image** | ❌ CRITICAL | `og:image` not set; `/public/og-image.png` does **not exist** (public/ contains only Google Search Console verification file) — social shares show blank preview — **3rd week unresolved** |
+| Twitter card | ✅ PARTIAL | `summary_large_image` card configured but no `twitter:image` — same root cause as og:image |
+| Sitemap | ✅ PASS | Dynamic `app/sitemap.js` — comprehensive, covers articles + directory + city combos |
+| Robots.txt | ✅ PASS | `app/robots.js` — allows all crawlers including AI bots (Perplexity, GPTBot, ClaudeBot, Google-Extended, Amazonbot) |
+| Schema markup | ✅ PASS | WebSite schema + Person schema in root layout.js |
+| Image optimization | ✅ PASS | Text-first design; Next.js Image component used where applicable |
+| Render-blocking | ✅ PASS | Next.js handles bundling; Google Fonts loaded via `link rel="preconnect"` in layout.js |
+| Favicon | ⚠️ WARNING | No favicon.ico or apple-touch-icon in `/public/` — browser tabs show blank icon |
 
 ---
 
 ### InboundAI (inboundai.app)
 
-**Pages found:** 1 HTML file (index.html — single-page, 57 KB, embedded CSS + vanilla JS)
-**Deployment status:** ❌ STILL NOT DEPLOYED — Site built ~4 weeks ago, DEPLOY.md exists with Cloudflare Pages instructions. No live URL yet.
+**Pages found:** 1 HTML file (index.html — single-page, 57 KB, embedded CSS + vanilla JS calculator + FAQ accordion)
+**Deployment status:** ❌ **STILL NOT DEPLOYED** — Site has been fully built for 5+ weeks. DEPLOY.md present with Cloudflare Pages instructions. No live URL confirmed.
 
 | Check | Status | Notes |
 |-------|--------|-------|
-| Broken links | ⚠️ WARNING | Footer "Terms of Service" link uses `href="#"` — no target page or section exists |
-| Title tags | ✅ PASS | `InboundAI — Every Missed Call Is a Job You Didn't Get` |
-| Meta description | ✅ PASS | Present, compelling 158-character copy |
+| Broken links | ❌ BUG | Footer "Terms of Service" uses `href="#"` — no target page or `#terms` anchor exists — **3rd week unresolved** |
+| Title tag | ✅ PASS | "InboundAI — Every Missed Call Is a Job You Didn't Get" |
+| Meta description | ✅ PASS | Compelling, benefit-focused, 158 chars |
 | Meta keywords | ❌ MISSING | Not present |
-| OG tags | ❌ CRITICAL | No og:title, og:description, og:image, og:url — **unresolved from last week** |
-| Sitemap | ❌ MISSING | No sitemap.xml — **unresolved from last week** |
-| Robots.txt | ❌ MISSING | No robots.txt — **unresolved from last week** |
-| Schema markup | ❌ MISSING | No JSON-LD — no Organization, no WebSite, no FAQPage (7 FAQ pairs in HTML with no structured data) — **unresolved from last week** |
+| OG tags | ❌ CRITICAL | No og:title, og:description, og:image, og:url — social sharing broken — **3rd week unresolved** |
+| Sitemap | ❌ MISSING | No sitemap.xml — **3rd week unresolved** |
+| Robots.txt | ❌ MISSING | No robots.txt — **3rd week unresolved** |
+| Schema markup | ❌ MISSING | No JSON-LD — 7 FAQ pairs in HTML with zero structured data; no Organization or WebSite schema — **3rd week unresolved** |
 | Image optimization | ✅ N/A | No images used |
-| Render-blocking scripts | ✅ PASS | All JS inline at end of body; no external blocking scripts |
-| External links | ✅ VALID | `https://calendly.com/inboundai/20min` (×6), `https://buy.stripe.com/...`, `tel:+18322815911` — all valid |
+| Render-blocking | ⚠️ WARNING | Google Fonts loaded via `link rel="stylesheet"` (preconnect present but stylesheet still render-blocks initial paint) — swap to `font-display: swap` via CSS or load asynchronously |
+| External links | ✅ PASS | `https://calendly.com/inboundai/20min` (×8), `https://buy.stripe.com/8x2eVe3TP1o5bl93znds400`, `tel:+18322815911` — all structurally valid |
 
 ---
 
 ## Deploy Queue
 
-`git log --since='7 days ago' --oneline` results per repo:
+`git log --since='7 days ago' --oneline` results:
 
-| Repo | New Commits (last 7 days) | Deploy Needed? |
-|------|--------------------------|----------------|
-| jacksonville-water-damage | None | No new changes |
-| nashville-water-damage | None | No new changes |
-| cincinnati-water-damage | None | No new changes |
-| hakd-site | None | No new changes |
-| inboundai-site- | `d79033f chore: weekly master report 2026-04-12` (report only) | ⚠️ Site built but never deployed — initial Cloudflare Pages deploy pending |
+| Repo | New Commits (Apr 19–26) | Deploy Status |
+|------|------------------------|---------------|
+| jacksonville-water-damage | **None** | No action needed |
+| nashville-water-damage | **None** | No action needed |
+| cincinnati-water-damage | **None** | No action needed |
+| hakd-site | **None** | No action needed |
+| inboundai-site- | `93e1423 chore: weekly master report 2026-04-19` (report file only) | No deploy needed for report commit |
 
-No new feature commits across any repo this week. InboundAI remains the only site awaiting initial deployment.
+**No feature commits across any repo this week.** All sites are static on their last deployed state. InboundAI remains the only site awaiting initial deployment.
 
 ---
 
 ## Broken Affiliate Links (HAKD)
 
-Full scan of all external `href` links in hakd-site:
+Full scan of external `href` links in hakd-site codebase:
 
-| URL | Location | Status |
-|-----|----------|--------|
-| `https://deluxe-moxie-d4016f.netlify.app` | layout.js, page.js, and 10+ files sitewide — **primary CTA/revenue link across entire site** | ⚠️ HIGH RISK: Raw Netlify auto-generated subdomain (not a custom domain). If the Netlify project is renamed, deleted, or disrupted, all HAKD assessment conversions go to zero simultaneously. Migrate to custom domain immediately. — **unresolved from last week** |
-| `https://coach.everfit.io/package/GL583637` | layout.js, about/page.js, articles/[slug]/page.js | ⚠️ UNVERIFIED: Package ID opaque — verify manually that the Everfit listing is still live |
-| `https://coach.everfit.io/package/KX912574` | layout.js, articles/[slug]/page.js | ⚠️ UNVERIFIED: Same risk as above |
-| `https://calendly.com/christianb3/15-minute-discovery-call` | layout.js, about/page.js | ✅ Standard Calendly format, likely valid |
-| `https://api.convertkit.com/v3/forms/9216083/subscribe` | API route (server-side only) | ✅ ConvertKit newsletter integration |
+| URL | Location | Risk |
+|-----|----------|------|
+| `https://deluxe-moxie-d4016f.netlify.app` | layout.js nav + footer, page.js hero + banners, articles/[slug] — **primary CTA across entire site** | ⚠️ **HIGH** — Raw auto-generated Netlify subdomain, not a custom domain. One project deletion/rename kills all HAKD assessment conversions. Migrate to `assess.hakd.app` — **3rd week unresolved** |
+| `https://coach.everfit.io/package/GL583637` | layout.js footer, about/page.js | ⚠️ **UNVERIFIED** — Verify this Everfit package is still active and live |
+| `https://coach.everfit.io/package/KX912574` | layout.js footer, articles/[slug]/page.js | ⚠️ **UNVERIFIED** — Same risk as above; verify manually |
+| `https://calendly.com/christianb3/15-minute-discovery-call` | layout.js footer, about/page.js | ✅ Standard Calendly URL format — verify link is still accepting bookings |
+| `https://api.convertkit.com/v3/forms/9216083/subscribe` | app/api/newsletter/route.js (server-side POST) | ✅ ConvertKit newsletter integration — server-side only, not a user-facing href |
 | `https://fonts.googleapis.com` | layout.js | ✅ Google Fonts CDN |
 
-**No confirmed 404s or dead affiliate links.** The Netlify subdomain for the EMM Assessment is the highest-risk link — it is the primary revenue CTA on every single page of the site.
+**No confirmed 404s.** The Netlify subdomain for the EMM Assessment is the single highest-risk link — it is the primary revenue conversion point on every page of the site and has no fallback.
 
 ---
 
@@ -141,7 +145,7 @@ Full scan of all external `href` links in hakd-site:
 
 Monthly summary scheduled for 1st of month.
 
-*(Today is 2026-04-19 — full performance summary with page counts, sitemap coverage %, schema coverage %, and new pages added will run on 2026-05-01.)*
+*(Today is 2026-04-26 — full performance summary with page counts, sitemap coverage %, schema coverage %, and new pages added will run on 2026-05-01.)*
 
 ---
 
@@ -149,17 +153,39 @@ Monthly summary scheduled for 1st of month.
 
 ### Ranked by revenue impact:
 
-**1. [InboundAI Pipeline] DEPLOY INBOUNDAI — Do it this week, not next**
-The InboundAI site has been fully built for ~4 weeks and is still not live. Every day offline is a missed HVAC and water restoration owner who can't find it, book a demo, or subscribe. The pre-deploy checklist (OG tags, sitemap.xml, robots.txt, Organization + FAQPage JSON-LD, fix Terms of Service link) is 30–60 minutes of work that has carried over two weeks in a row. Complete the checklist in a single commit, then follow DEPLOY.md to publish to Cloudflare Pages. This is the highest-leverage action across all 5 businesses — nothing else matters until the product is live.
+---
 
-**2. [InboundAI Site] Complete the pre-deploy SEO checklist before launch**
-All 4 items are quick adds to index.html: (a) add og:title, og:description, og:image, og:url meta tags; (b) create sitemap.xml with a single URL entry; (c) create robots.txt allowing all crawlers; (d) add Organization + FAQPage JSON-LD schema. Without these, launching means a site that can't be crawled properly, won't show social previews, and has no structured data from day one. Fix as a single pre-launch commit alongside fixing the footer Terms of Service `href="#"` broken link.
+**1. [InboundAI Pipeline] DEPLOY INBOUNDAI — Now 5+ weeks offline, immediate action required**
 
-**3. [Rank-and-Rent] Fix Nashville sitemap — 4 high-value SEO pages still invisible to Google**
-Nashville's sitemap.xml is missing `hardwood-floor-water-damage-nashville`, `insurance-claim-water-damage-nashville`, `commercial-water-damage-nashville`, and `water-damage-restoration-cost-nashville`. These are the highest-intent, highest-differentiation pages on the site — cost guides and insurance guides that capture mid-funnel research traffic — and Google is not being directed to crawl them. This is a 15-minute fix: add 4 `<url>` entries to sitemap.xml, commit, redeploy. Has carried over two weeks.
+The site is fully built and has been sitting in a repo for over a month. Every week this stays undeployed is a week where HVAC and water restoration owners searching for this solution find nothing. The deployment itself (DEPLOY.md → Cloudflare Pages) is a 20-minute task. The pre-deploy checklist below should be done in the same commit. This is the highest-leverage action across all 5 businesses — a live InboundAI site at $750/month per client has the potential to outperform all 3 rank-and-rent sites combined.
 
-**4. [Rank-and-Rent] Fix Cincinnati "Nashville" copy error + verify contact form**
-Multiple Cincinnati pages reference "Nashville" in body copy (index.html ~lines 138, 230–232). This is a credibility and local SEO signal problem. Fix is a fast find-and-replace. Simultaneously, the Cincinnati contact form uses `data-netlify="true"` on a Cloudflare Workers deployment — lead capture may be silently failing. Verify whether form submissions are being received; if not, swap the form handler to Cloudflare Pages form handling or a Formspree endpoint.
+**Pre-deploy commit checklist (30–45 min total):**
+- Add OG tags to `<head>`: og:title, og:description, og:image (create a 1200×630 branded image), og:url
+- Create `sitemap.xml` with single entry for the live domain
+- Create `robots.txt` with `Allow: /` and sitemap reference
+- Add `Organization` + `FAQPage` JSON-LD schema (7 FAQ pairs already exist in HTML)
+- Fix footer Terms of Service `href="#"` → either add `#faq` or create a terms page
 
-**5. [HAKD] Migrate EMM Assessment off Netlify auto-subdomain**
-The primary revenue CTA across every HAKD page links to `https://deluxe-moxie-d4016f.netlify.app` — a raw Netlify-generated subdomain, not a custom domain. One accidental project deletion or Netlify account change and every single HAKD assessment conversion goes dead simultaneously. Migrate the assessment to `assess.hakd.app` or `tools.hakd.app`, do a find-and-replace across the 10+ files that reference it, commit, and redeploy. This is a single-point-of-failure risk sitting on top of the primary coaching funnel.
+---
+
+**2. [Rank-and-Rent] Nashville sitemap — 4 high-intent pages still invisible to Google (3rd week)**
+
+`commercial-water-damage-nashville`, `hardwood-floor-water-damage-nashville`, `insurance-claim-water-damage-nashville`, and `water-damage-restoration-cost-nashville` are missing from sitemap.xml. These are the highest-differentiation pages on the Nashville site — cost guides and insurance guides capture mid-funnel research traffic that converts. Google is not being directed to crawl them. Fix is 4 `<url>` block additions to sitemap.xml, commit, redeploy. 15-minute task. Has been flagged 3 weeks in a row.
+
+---
+
+**3. [Rank-and-Rent] Cincinnati copy errors + malformed HTML — damages local SEO credibility (3rd week)**
+
+Four instances of "Nashville" in Cincinnati's index.html body copy are a direct local SEO credibility problem — if Google reads "Nashville" on a page targeting Cincinnati queries, it weakens geo-relevance signals. Additionally, a **new finding this week**: `<span itemprop="addressLocality": "Cincinnati</span>` is malformed HTML (colon instead of `=`) — the microdata is invalid and not being parsed. Both are fast fixes: find-and-replace "Nashville" → "Cincinnati" in index.html, fix the malformed span, commit, redeploy. While in the file, verify the contact form handler works on Cloudflare Workers (swap `data-netlify="true"` to Formspree if not).
+
+---
+
+**4. [HAKD] Add og:image — currently breaks every social share on the site (3rd week)**
+
+The HAKD layout.js has `openGraph` and `twitter` card configured but no image. `/public/` contains zero images (only Google Search Console verification). Every tweet, LinkedIn post, or shared link from hakd.app renders as a blank card — missing the single biggest visual driver of click-through on social. Fix: create a 1200×630 branded `og-image.png` (HAKD dark theme, white/gold typography), add to `/public/og-image.png`, then add `images: ['https://hakd.app/og-image.png']` to the `openGraph` and `twitter` objects in layout.js. Also add a `favicon.ico` while in `/public/`.
+
+---
+
+**5. [HAKD] Migrate EMM Assessment off raw Netlify subdomain (3rd week)**
+
+`deluxe-moxie-d4016f.netlify.app` is the primary CTA on every single HAKD page — in the nav, hero, banners, article CTAs, footer, and About page. It is a raw auto-generated Netlify subdomain with no custom domain. One accidental project deletion, a Netlify account change, or a team member renaming the project causes a complete and silent conversion blackout across the entire site. Migration path: add a custom domain (`assess.hakd.app` or `tools.hakd.app`) to the Netlify project, then do a single find-and-replace across all hakd-site files. Verify the two Everfit coaching package links (`GL583637`, `KX912574`) are still active at the same time.
