@@ -1,4 +1,4 @@
-# Weekly Master Report — 2026-06-21
+# Weekly Master Report — 2026-06-28
 
 ---
 
@@ -10,15 +10,16 @@
 
 | Check | Status | Notes |
 |-------|--------|-------|
-| Title tag | ✅ Pass | Present on all pages |
-| Meta description | ✅ Pass | Present on all public pages |
-| Meta keywords | ❌ Missing | No `<meta name="keywords">` on any page |
-| OG tags | ❌ Missing | No og:title/description/image/url — **CARRY-OVER, 5 WEEKS** |
+| Title tag | ✅ Pass | Present on all 11 pages |
+| Meta description | ✅ Pass | Present on all public pages (`thank-you.html` is intentionally `noindex`, no description needed) |
+| Meta keywords | ❌ Missing | No `<meta name="keywords">` on any page — **CARRY-OVER, 6 WEEKS** |
+| OG tags | ❌ Missing | No og:title/description/image/url — **CARRY-OVER, 6 WEEKS** |
 | sitemap.xml | ✅ Pass | All 10 public pages listed correctly |
 | robots.txt | ✅ Pass | Allows crawlers; references sitemap |
 | LocalBusiness schema | ✅ Pass | `["LocalBusiness","EmergencyService"]` + FAQPage + AggregateRating on index.html |
 | Page speed | ✅ Pass | No images, no blocking JS |
 | Broken local links | ✅ Pass | None found — all internal hrefs resolve |
+| Homepage → sub-page links | ✅ Pass | Footer links to all 9 service/area pages by real `href`, not anchors |
 
 **Action items (carry-over):** Add OG tags to all pages.
 
@@ -30,21 +31,24 @@
 |-------|--------|-------|
 | Title tag | ✅ Pass | All pages |
 | Meta description | ✅ Pass | All public pages |
-| Meta keywords | ❌ Missing | No keywords meta anywhere |
-| OG tags | ❌ Missing | No OG tags — **CARRY-OVER, 5 WEEKS** |
-| sitemap.xml | ⚠️ Incomplete | Only 10 of 14 URLs listed — **CARRY-OVER, STILL UNFIXED 5 WEEKS** |
+| Meta keywords | ❌ Missing | No keywords meta anywhere — **CARRY-OVER, 6 WEEKS** |
+| OG tags | ❌ Missing | No OG tags — **CARRY-OVER, 6 WEEKS** |
+| sitemap.xml | ⚠️ Incomplete | Only 10 of 14 public URLs listed — **CARRY-OVER, STILL UNFIXED 6 WEEKS** |
 | robots.txt | ✅ Pass | Allows crawlers; references sitemap |
 | EmergencyService schema | ✅ Pass | `EmergencyService` + FAQPage + AggregateRating |
 | Page speed | ✅ Pass | No images, no blocking JS |
-| Broken local links | ✅ Pass | None found |
+| Broken local links | ✅ Pass | No links pointing at missing files |
+| Homepage → sub-page links | ❌ **New finding** | `index.html` footer links only to `#services`/`#areas` anchors on itself — it does **not** contain a real `href` to any of the 14 individual service/location pages. Those pages do interlink with each other and back to `index.html` (so they're not fully orphaned), but a visitor or crawler starting at the homepage cannot click through to any of them. |
 
-**Sitemap gaps — re-verified, unchanged for 5 weeks, and worse than previously documented:**
-- `/insurance-claim-water-damage-nashville` — missing from sitemap, but **is** linked from index.html nav (discoverable by visitors, not by Google)
-- `/water-damage-restoration-cost-nashville` — missing from sitemap, but **is** linked from index.html nav
-- `/commercial-water-damage-nashville` — missing from sitemap **and** has zero internal links anywhere on the site (fully orphaned page — only reachable by typing the URL directly)
-- `/hardwood-floor-water-damage-nashville` — missing from sitemap **and** has zero internal links anywhere on the site (fully orphaned page)
+**Sitemap gaps — re-verified, unchanged for 6 weeks:**
+- `/insurance-claim-water-damage-nashville` — missing from sitemap.xml
+- `/water-damage-restoration-cost-nashville` — missing from sitemap.xml
+- `/commercial-water-damage-nashville` — missing from sitemap.xml
+- `/hardwood-floor-water-damage-nashville` — missing from sitemap.xml
 
-**Action items:** Add the 4 missing URLs to sitemap.xml (5-minute fix, unaddressed for 5 weeks); additionally link `commercial-water-damage-nashville` and `hardwood-floor-water-damage-nashville` from the homepage/nav — right now they're invisible to both users and crawlers; add OG tags to all pages.
+(Correction vs. prior audits: none of these 4 are linked from `index.html` nav — confirmed by direct inspection this week. All 4 are reachable only via direct URL or the sitemap, and only 0 of the 4 are even in the sitemap.)
+
+**Action items:** Add the 4 missing URLs to sitemap.xml; add real homepage links (footer or nav) to the service/area pages — right now Google and visitors can only reach them via sitemap or a guessed URL; add OG tags to all pages.
 
 ---
 
@@ -54,17 +58,18 @@
 |-------|--------|-------|
 | Title tag | ✅ Pass | All pages |
 | Meta description | ✅ Pass | All public pages |
-| Meta keywords | ❌ Missing | No keywords meta anywhere |
-| OG tags | ❌ Missing | No OG tags — **CARRY-OVER, 5 WEEKS** |
+| Meta keywords | ❌ Missing | No keywords meta anywhere — **CARRY-OVER, 6 WEEKS** |
+| OG tags | ❌ Missing | No OG tags — **CARRY-OVER, 6 WEEKS** |
 | sitemap.xml | ✅ Pass | All 9 public pages listed correctly |
 | robots.txt | ✅ Pass | Allows crawlers; references sitemap |
 | EmergencyService schema | ✅ Pass | index.html + FAQPage |
 | Page speed | ✅ Pass | No images, no blocking JS |
 | Broken local links | ✅ Pass | None found |
+| Homepage → sub-page links | ❌ **New finding** | Same pattern as Nashville: `index.html` footer only links to `#services`/`#areas` anchors, not to any of the 7 real service/area pages. Sub-pages interlink with each other and back to `index.html`, but the homepage sends zero internal link equity out to them. |
 
-**🚨🚨 CRITICAL — Nashville/Tennessee brand contamination — STILL LIVE, 5 WEEKS UNFIXED:**
+**🚨🚨 CRITICAL — Nashville/Tennessee brand contamination — STILL LIVE, 6 WEEKS UNFIXED:**
 
-Re-verified line-by-line, all 7 instances still present, byte-for-byte identical to week 1:
+Re-verified line-by-line this week, all 7 instances still present, byte-for-byte identical to week 1:
 
 | File:Line | Wrong Text |
 |-----------|-----------|
@@ -84,7 +89,7 @@ Re-verified line-by-line, all 7 instances still present, byte-for-byte identical
 <span itemprop="addressLocality">Cincinnati</span>
 ```
 
-**Action items:** Fix all 7 Nashville/Tennessee references in index.html + emergency.html; fix the broken `itemprop` attribute. ~20 minutes total — this has now sat unfixed for **5 consecutive weekly audits** on a live, traffic-receiving site.
+**Action items:** Fix all 7 Nashville/Tennessee references in index.html + emergency.html; fix the broken `itemprop` attribute; add real homepage links to the 7 service/area pages. ~25 minutes total — the brand-contamination bug has now sat unfixed for **6 consecutive weekly audits** on a live, traffic-receiving site.
 
 ---
 
@@ -94,15 +99,15 @@ Re-verified line-by-line, all 7 instances still present, byte-for-byte identical
 |-------|--------|-------|
 | Title tags | ✅ Pass | root layout + per-page generateMetadata |
 | Meta description | ✅ Pass | layout.js + per-page overrides |
-| OG tags | ⚠️ Partial | og:title/description/url/siteName present; **og:image still missing — `/public/og-image.png` does not exist** — **CARRY-OVER, 5 WEEKS** (only `googledd73f79cadf7fe77.html` verification file present in `/public`) |
+| OG tags | ⚠️ Partial | og:title/description/url/siteName present; **og:image still missing — `/public/og-image.png` does not exist** — **CARRY-OVER, 6 WEEKS** (only `googledd73f79cadf7fe77.html` verification file present in `/public`) |
 | sitemap | ✅ Pass | Dynamic `app/sitemap.js` covers static + category + article + directory listing routes |
 | robots | ✅ Pass | Dynamic `app/robots.js` with AI crawler allowlist (Perplexity, GPTBot, ClaudeBot, Google-Extended, Amazonbot) |
 | Schema | ✅ Pass | WebSite + Person in layout.js; Article + BreadcrumbList on articles; FAQPage on listings |
 | Page speed | ✅ Pass | SSG, no render-blocking resources |
 | Broken internal links | ✅ Pass | All internal routes resolve |
 
-**🚨🚨 SECURITY — ConvertKit API key still hardcoded in source — 5 WEEKS UNFIXED, RE-ESCALATING:**
-`/app/api/subscribe/route.js:14` — `api_key: 'unwsbthP07XOrlhfGdfrkg'` is committed in plaintext to the **public** git repository (in git history for 5+ weeks now). No `CONVERTKIT_API_KEY` env var reference exists anywhere in `app/`.
+**🚨🚨 SECURITY — ConvertKit API key still hardcoded in source — 6 WEEKS UNFIXED, RE-ESCALATING:**
+`/app/api/subscribe/route.js:14` — `api_key: 'unwsbthP07XOrlhfGdfrkg'` is committed in plaintext to the **public** git repository (in git history for 6+ weeks now). No `CONVERTKIT_API_KEY` env var reference exists anywhere in `app/`.
 
 Fix steps (unchanged):
 1. ConvertKit → Settings → Advanced → API → **Regenerate API Key** (must rotate regardless — already exposed in history)
@@ -110,9 +115,9 @@ Fix steps (unchanged):
 3. Replace the hardcoded string in `route.js:14` with `process.env.CONVERTKIT_API_KEY`
 4. Redeploy
 
-This is the single most actionable security item across all 5 properties and has now been flagged in **five** consecutive reports without action.
+This is the single most actionable security item across all 5 properties and has now been flagged in **six** consecutive reports without action.
 
-**Action items:** (1) Rotate ConvertKit key NOW; (2) add `/public/og-image.png` (1200×630) and reference in `layout.js` `openGraph.images`; (3) migrate EMM Assessment off the random Netlify subdomain (see below).
+**Action items:** (1) Rotate ConvertKit key NOW; (2) add `/public/og-image.png` (1200×630) and reference in `layout.js` `openGraph.images`; (3) migrate EMM Assessment off the random Netlify subdomain (see Affiliate Links below).
 
 ---
 
@@ -123,22 +128,22 @@ This is the single most actionable security item across all 5 properties and has
 | Title tag | ✅ Pass | "InboundAI — Every Missed Call Is a Job You Didn't Get" |
 | Meta description | ✅ Pass | Present |
 | Meta keywords | ❌ Missing | |
-| OG tags | ❌ Missing | No og:title/description/image/url — **CARRY-OVER, 5 WEEKS** |
-| sitemap.xml | ❌ Missing | File not in repo — **CARRY-OVER, 5 WEEKS** |
-| robots.txt | ❌ Missing | File not in repo — **CARRY-OVER, 5 WEEKS** |
-| JSON-LD schema | ❌ Missing | No SoftwareApplication or Organization schema — **CARRY-OVER, 5 WEEKS** |
+| OG tags | ❌ Missing | No og:title/description/image/url — **CARRY-OVER, 6 WEEKS** |
+| sitemap.xml | ❌ Missing | File not in repo — **CARRY-OVER, 6 WEEKS** |
+| robots.txt | ❌ Missing | File not in repo — **CARRY-OVER, 6 WEEKS** |
+| JSON-LD schema | ❌ Missing | No SoftwareApplication or Organization schema — **CARRY-OVER, 6 WEEKS** |
 | Page speed | ✅ Pass | Inline `<script>` placed at end of body (non-blocking); zero `<img>` tags |
 | Broken local links | ⚠️ 2 found, unchanged | `href="#"` on nav logo (line 538) and "Terms of Service" (line 1118) — no `/terms.html` exists |
 
-The entire site (`index.html`) has had **zero code commits since launch on 2026-04-05** — these are the same gaps that existed on day one, now ~11 weeks old.
+The entire site (`index.html`) has had **zero code commits since launch on 2026-04-05** — these are the same gaps that existed on day one, now ~12 weeks old.
 
-**Action items (all carry-over, now 5 weeks old in this audit, ~11 weeks since launch):** Create robots.txt and sitemap.xml; add OG tags; add SoftwareApplication + Organization JSON-LD schema; fix the 2 dead `href="#"` links.
+**Action items (all carry-over, now 6 weeks old in this audit, ~12 weeks since launch):** Create robots.txt and sitemap.xml; add OG tags; add SoftwareApplication + Organization JSON-LD schema; fix the 2 dead `href="#"` links.
 
 ---
 
 ## Deploy Queue
 
-`git log --since='7 days ago' --oneline` results (run 2026-06-21):
+`git log --since='7 days ago' --oneline` results (run 2026-06-28):
 
 | Repo | New Commits (7 days) | Needs Deploy? |
 |------|---------------------|---------------|
@@ -146,11 +151,11 @@ The entire site (`index.html`) has had **zero code commits since launch on 2026-
 | nashville-water-damage | 0 | No |
 | cincinnati-water-damage | 0 | No |
 | hakd-site | 0 | No |
-| inboundai-site- | 1 — `7ae240e chore: weekly master report 2026-06-14` (report file only) | No |
+| inboundai-site- | 1 — `d533636 chore: weekly master report 2026-06-21` (report file only) | No |
 
-**No code deployments required.** All 5 sites are still running the same code as last week. `jacksonville-water-damage`, `nashville-water-damage`, and `cincinnati-water-damage` have had zero commits since 2026-03-24/25; `hakd-site` since 2026-03-25; `inboundai-site-`'s actual site code since launch on 2026-04-05 (only the weekly report file has moved since).
+**No code deployments required.** All 5 sites are still running the same code as last week. `jacksonville-water-damage`, `nashville-water-damage`, and `cincinnati-water-damage` have had zero commits since 2026-03-24/25; `hakd-site` since 2026-03-25; `inboundai-site-`'s actual site code since launch on 2026-04-05 (only the weekly report file has moved since). Working trees are clean across all 5 repos — no uncommitted local changes anywhere.
 
-> ⚠️ **Fifth consecutive week with zero substantive commits across all 5 properties.** Every carry-over item below (Cincinnati brand contamination, HAKD API key, Nashville sitemap gap + 2 orphaned pages, missing OG tags everywhere, missing InboundAI SEO foundation) is now five weeks old in this audit cycle. These remain small, fast fixes — the backlog is a prioritization problem, not a complexity problem.
+> ⚠️ **Sixth consecutive week with zero substantive commits across all 5 properties.** Every carry-over item below (Cincinnati brand contamination, HAKD API key, Nashville sitemap gap, missing OG tags everywhere, missing InboundAI SEO foundation) is now six weeks old in this audit cycle. These remain small, fast fixes — the backlog is a prioritization problem, not a complexity problem.
 
 ---
 
@@ -167,13 +172,13 @@ External link scan of `app/` and `lib/` (unchanged from prior weeks):
 | `https://api.convertkit.com/v3/forms/9216083/subscribe` | Newsletter signup API | ✅ Real platform domain (associated with the exposed API key above) |
 | `https://api.telegram.org/bot...` | Internal notification webhook | ✅ Real platform domain |
 
-No placeholder URLs (`example.com`, `#`, `TODO`, `YOUR_*_HERE`) or wrong-domain links found. The `deluxe-moxie-d4016f.netlify.app` link remains the only structurally risky one — still not broken, but still one accidental Netlify cleanup away from taking down hakd.app's entire conversion path. Live click-through/404 verification still requires Christian's own connection (sandbox network policy blocks outbound HTTP checks from this environment).
+No placeholder URLs (`example.com`, `#`, `TODO`, `YOUR_*_HERE`) or wrong-domain links found. The `deluxe-moxie-d4016f.netlify.app` link remains the only structurally risky one — still not broken, but still one accidental Netlify cleanup away from taking down hakd.app's entire conversion path. Attempted live 404 checks via this environment's outbound proxy this week (all three primary CTA domains) — all returned `403 Forbidden` at the proxy layer, not from the destination sites, so live click-through verification still requires Christian's own connection.
 
 ---
 
 ## Monthly Summary
 
-Today is **2026-06-21** — not the 1st of the month (next monthly summary due **2026-07-01**).
+Today is **2026-06-28** — not the 1st of the month (next monthly summary due **2026-07-01**, three days out).
 
 **Monthly summary scheduled for 1st of month.**
 
@@ -186,25 +191,25 @@ Today is **2026-06-21** — not the 1st of the month (next monthly summary due *
 
 ---
 
-### 2. 🔴 Fix Cincinnati Nashville/Tennessee brand contamination [RANK-AND-RENT — 5 WEEKS UNFIXED, URGENT]
-**Revenue impact: HIGH** — Live visitors on cincinnatiwaterdamagepros.com are reading "We're a Nashville company" and "every insurance carrier in Tennessee" — this directly kills conversion trust on an active lead-gen property that's been taking traffic with this bug for over a month. 7 text fixes + 1 broken HTML attribute, ~20 minutes total, re-verified still present line-for-line.
+### 2. 🔴 Fix Cincinnati Nashville/Tennessee brand contamination [RANK-AND-RENT — 6 WEEKS UNFIXED, URGENT]
+**Revenue impact: HIGH** — Live visitors on cincinnatiwaterdamagepros.com are reading "We're a Nashville company" and "every insurance carrier in Tennessee" — this directly kills conversion trust on an active lead-gen property that's been taking traffic with this bug for six weeks running. 7 text fixes + 1 broken HTML attribute, ~20 minutes total, re-verified still present line-for-line this week.
 
 Fix in `index.html` (lines 138, 230, 232, 260, 274, 321) and `emergency.html` (line 48): replace "Nashville"/"Tennessee" with "Cincinnati"/"Ohio".
 Fix in `index.html:112`: `itemprop="addressLocality": "Cincinnati` → `itemprop="addressLocality">Cincinnati`.
 
 ---
 
-### 3. 🟠 Add the 4 missing pages to Nashville's sitemap.xml — and link the 2 orphaned ones [RANK-AND-RENT — 5 WEEKS UNFIXED]
-**Revenue impact: MEDIUM-HIGH** — `commercial-water-damage-nashville` and `hardwood-floor-water-damage-nashville` are not just missing from the sitemap, they have **zero internal links anywhere on the site** — Google and visitors can only find them by guessing the exact URL. `insurance-claim-water-damage-nashville` and `water-damage-restoration-cost-nashville` are linked in the nav but still absent from the sitemap. All 4 are live, high-value SEO pages sitting undiscovered for 5 weeks running. Add all 4 to `sitemap.xml` (5-minute fix) and add nav/footer links to the 2 fully orphaned pages.
+### 3. 🟠 Fix Nashville's sitemap gap and add real homepage navigation to Nashville + Cincinnati's service/area pages [RANK-AND-RENT — 6 WEEKS UNFIXED]
+**Revenue impact: MEDIUM-HIGH** — Nashville's sitemap.xml is still missing 4 live URLs (`insurance-claim-water-damage-nashville`, `water-damage-restoration-cost-nashville`, `commercial-water-damage-nashville`, `hardwood-floor-water-damage-nashville`). Newly confirmed this week: on **both** Nashville and Cincinnati, the homepage itself contains zero real links to any of its individual service/location pages — only `#anchor` links back to itself. Those pages do interlink with each other, but the homepage (the page that gets the most traffic and external links) passes zero link equity to them, and a homepage visitor can't click through to a specific city/service page at all. Add the 4 missing URLs to Nashville's sitemap.xml (5-minute fix), and add a real "Service Areas" / "Services" footer section with actual hrefs to both homepages (Jacksonville already does this correctly — use it as the template).
 
 ---
 
-### 4. 🔴 Rotate the HAKD ConvertKit API key [SECURITY — 5 WEEKS EXPOSED, RE-ESCALATING]
-**Revenue impact: HIGH** — The hardcoded key in `/app/api/subscribe/route.js:14` (`unwsbthP07XOrlhfGdfrkg`) has now been sitting in the **public** git history for 5+ weeks. Anyone who finds it can pollute the subscriber list, inject fake tags, or spam the audience under the HAKD brand. Steps: (1) regenerate in ConvertKit, (2) add `CONVERTKIT_API_KEY` to Vercel env vars, (3) swap the hardcoded string for `process.env.CONVERTKIT_API_KEY`, (4) redeploy. ~15 minutes.
+### 4. 🔴 Rotate the HAKD ConvertKit API key [SECURITY — 6 WEEKS EXPOSED, RE-ESCALATING]
+**Revenue impact: HIGH** — The hardcoded key in `/app/api/subscribe/route.js:14` (`unwsbthP07XOrlhfGdfrkg`) has now been sitting in the **public** git history for 6+ weeks. Anyone who finds it can pollute the subscriber list, inject fake tags, or spam the audience under the HAKD brand. Steps: (1) regenerate in ConvertKit, (2) add `CONVERTKIT_API_KEY` to Vercel env vars, (3) swap the hardcoded string for `process.env.CONVERTKIT_API_KEY`, (4) redeploy. ~15 minutes.
 
 ---
 
-### 5. 🟡 Build InboundAI's SEO foundation: robots.txt + sitemap.xml + schema + OG tags [INBOUNDAI SITE — 5 WEEKS MISSING, ~11 WEEKS SINCE LAUNCH]
+### 5. 🟡 Build InboundAI's SEO foundation: robots.txt + sitemap.xml + schema + OG tags [INBOUNDAI SITE — 6 WEEKS MISSING, ~12 WEEKS SINCE LAUNCH]
 **Revenue impact: MEDIUM** — InboundAI is the funnel for the highest-value product, and the marketing site still has the same gaps it launched with on 2026-04-05: no robots.txt, no sitemap.xml, no Organization/SoftwareApplication JSON-LD, no OG tags, plus 2 dead `href="#"` links (logo + Terms of Service). ~30 minutes total and Google still can't reliably discover or represent the page.
 
 Files/changes needed:
