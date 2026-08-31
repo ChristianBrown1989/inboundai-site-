@@ -1,4 +1,4 @@
-# Weekly Master Report — 2026-08-23
+# Weekly Master Report — 2026-08-31
 
 ---
 
@@ -28,14 +28,14 @@
 - **Meta Keywords:** ❌ Missing on ALL pages
 - **OG Tags (title/desc/image/url):** ❌ Missing on ALL pages — zero social sharing capability
 - **Schema Markup:** ⚠️ 7/15 with schema — MISSING on 8 pages: `basement-flooding-nashville`, `brentwood-water-damage`, `franklin-water-damage`, `mold-remediation-nashville`, `murfreesboro-water-damage`, `sewage-backup-nashville`, `storm-damage-nashville`, `thank-you`
-- **Sitemap:** 🔴 **STILL 10/14 real pages — 4 pages NOT IN SITEMAP (2nd week outstanding):**
+- **Sitemap:** 🔴 **STILL 10/14 real pages — 4 pages NOT IN SITEMAP (3rd week outstanding):**
   - `commercial-water-damage-nashville`
   - `hardwood-floor-water-damage-nashville`
   - `insurance-claim-water-damage-nashville`
   - `water-damage-restoration-cost-nashville`
 - **Robots.txt:** ✅ Exists, `Allow: /` with sitemap reference
 - **Broken Local Links:** ✅ None
-- **Status vs Last Week:** 🔴 Sitemap fix NOT completed — now entering 2nd week. These 4 high-intent pages remain unindexable.
+- **Status vs Last Week:** 🔴 Sitemap fix NOT completed — now entering 3rd consecutive week. These 4 high-intent pages remain unindexable.
 
 ---
 
@@ -61,7 +61,7 @@
 - **Meta Description:** ✅ Set in `app/layout.js`
 - **Meta Keywords:** ❌ Not set (low priority — Google ignores meta keywords)
 - **OG:title / OG:description / OG:url / OG:siteName / OG:type:** ✅ All set in `layout.js`
-- **OG:image:** 🔴 **STILL MISSING** — no `images` array in `openGraph` config, no `og-image.png` in `/public/` (2nd week outstanding)
+- **OG:image:** 🔴 **STILL MISSING** — no `images` array in `openGraph` config, no `og-image.png` in `/public/` (3rd week outstanding)
 - **Twitter Card:** ✅ `summary_large_image` set (blank without og:image)
 - **Schema Markup:** ✅ `WebSite` + `Person` (Christian Brown) JSON-LD in layout
 - **Sitemap:** ✅ Dynamic `sitemap.js` covering articles, directory, and static routes
@@ -88,7 +88,7 @@
 
 ## Deploy Queue
 
-**Period:** 2026-08-16 through 2026-08-23
+**Period:** 2026-08-24 through 2026-08-31
 
 | Repo | New Commits (7 days) | Needs Deploy? |
 |------|----------------------|---------------|
@@ -96,7 +96,7 @@
 | nashville-water-damage | 0 | No |
 | cincinnati-water-damage | 0 | No |
 | hakd-site | 0 | No |
-| inboundai-site- | 1 (automated weekly report 2026-08-16) | No — report file only |
+| inboundai-site- | 0 | No (last commit: 2026-08-23 weekly report, 8 days ago) |
 
 **No code deployments required this week.** All sites stable. No new feature commits on any repo.
 
@@ -104,15 +104,18 @@
 
 ## Broken Affiliate Links (HAKD)
 
-Outbound HTTPS is proxied in this environment — live status checks unavailable. All links are structurally valid and unchanged from last week. **No new dead links detected.**
+Full source scan of all `.js`/`.ts`/`.tsx`/`.jsx` files completed this week (grep-based, no outbound requests):
 
-External links present across HAKD app:
-- `https://deluxe-moxie-d4016f.netlify.app` — EMM Assessment (appears 10+ times: announce bar, nav, hero, directory, article sidebars, about page). **Structural flag:** This is a generic Netlify project subdomain used as the primary revenue CTA. Recommend pointing a custom subdomain (`assessment.hakd.app`) at this for trust and brand consistency.
-- `https://coach.everfit.io/package/GL583637` — Monthly Coaching (layout footer + about page)
-- `https://coach.everfit.io/package/KX912574` — Monthly Training (layout footer + article sidebar)
-- `https://calendly.com/christianb3/15-minute-discovery-call` — Discovery Call (layout footer + about page)
+| URL | Location | Status |
+|-----|----------|--------|
+| `https://deluxe-moxie-d4016f.netlify.app` | `layout.js` — announce bar, nav, footer (5+ uses per page) | ⚠️ **RISK** — auto-generated Netlify subdomain is the site's #1 CTA for EMM Assessment. Fragile: one project deletion breaks all conversion paths sitewide. Migrate to `assessment.hakd.app`. |
+| `https://coach.everfit.io/package/GL583637` | `layout.js` footer | ✅ Valid (Everfit coaching) |
+| `https://coach.everfit.io/package/KX912574` | `layout.js` footer | ✅ Valid (Everfit training) |
+| `https://calendly.com/christianb3/15-minute-discovery-call` | `layout.js` footer | ✅ Valid (Calendly) |
+| `https://api.convertkit.com/v3/form...` | API route (backend only) | ✅ Backend — not user-facing |
+| `https://api.telegram.org/bot...` | API route (backend only) | ✅ Backend template string — not hardcoded |
 
-No placeholder URLs, no dead-looking domains, no 404-pattern paths detected. Manual spot-check of everfit.io packages recommended if conversion rates drop.
+No confirmed dead links. Primary structural risk: Netlify subdomain fragility for the EMM Assessment CTA.
 
 ---
 
@@ -124,10 +127,10 @@ Monthly summary scheduled for 1st of month. Full performance report will run on 
 
 ## THIS WEEK'S TOP 5 PRIORITIES
 
-*(Ranked by revenue impact — items 1 & 2 are CARRIED OVER from last week, now urgent)*
+*(Ranked by revenue impact — items 1, 2 & 3 are CARRIED OVER for 3rd consecutive week)*
 
-### 1. 🔴 Nashville Sitemap — Add 4 Missing Pages [RANK-AND-RENT] ⚠️ WEEK 2 OUTSTANDING
-**Revenue impact: HIGH — these pages are deployed but invisible to Google for 2 weeks now.**
+### 1. 🔴 Nashville Sitemap — Add 4 Missing Pages [RANK-AND-RENT] ⚠️ WEEK 3 OUTSTANDING
+**Revenue impact: HIGH — these pages are deployed but invisible to Google for 3 weeks now.**
 `nashville-water-damage/sitemap.xml` has 10 entries. Four high-intent SEO pages are live but missing:
 - `commercial-water-damage-nashville`
 - `hardwood-floor-water-damage-nashville`
@@ -135,7 +138,7 @@ Monthly summary scheduled for 1st of month. Full performance report will run on 
 - `water-damage-restoration-cost-nashville`
 Add 4 `<url>` blocks, push, redeploy. 15-minute fix. Every day of delay is a day of lost indexing.
 
-### 2. 🔴 InboundAI Landing Page — OG Tags + Schema + Sitemap + Robots.txt [INBOUNDAI] ⚠️ WEEK 2 OUTSTANDING
+### 2. 🔴 InboundAI Landing Page — OG Tags + Schema + Sitemap + Robots.txt [INBOUNDAI] ⚠️ WEEK 3 OUTSTANDING
 **Revenue impact: HIGHEST per unit — this page sells the highest-ticket product.**
 `index.html` is missing all social metadata, structured data, sitemap.xml, and robots.txt. Social shares show blank preview cards. Required additions:
 - `og:title`, `og:description`, `og:image`, `og:url`, `og:type`
@@ -144,7 +147,7 @@ Add 4 `<url>` blocks, push, redeploy. 15-minute fix. Every day of delay is a day
 - `sitemap.xml` (1 URL)
 - `robots.txt` (`User-agent: * / Allow: /`)
 
-### 3. 🟡 HAKD — Create og:image and Wire Into layout.js [HAKD] ⚠️ WEEK 2 OUTSTANDING
+### 3. 🟡 HAKD — Create og:image and Wire Into layout.js [HAKD] ⚠️ WEEK 3 OUTSTANDING
 **Revenue impact: MEDIUM — every article share and homepage share shows a blank thumbnail.**
 Steps: Create 1200×630px branded image → save as `/public/og-image.png` → add to `app/layout.js`:
 ```js
