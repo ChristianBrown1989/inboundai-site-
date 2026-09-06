@@ -1,4 +1,4 @@
-# Weekly Master Report — 2026-08-31
+# Weekly Master Report — 2026-09-06
 
 ---
 
@@ -10,13 +10,14 @@
 - **Meta Title:** ✅ All 10 real pages
 - **Meta Description:** ✅ 10/11 (thank-you missing — acceptable)
 - **Meta Keywords:** ❌ Missing on ALL pages
-- **OG Tags (title/desc/image/url):** ❌ Missing on ALL pages — zero social sharing capability
-- **Schema Markup:** ⚠️ 9/10 — `sewage-backup-jacksonville.html` still missing LocalBusiness/EmergencyService JSON-LD
-- **Sitemap:** ✅ All 10 real pages covered
+- **OG Tags (title/desc/image/url):** ❌ Missing on ALL pages — zero social sharing preview
+- **Twitter Card:** ❌ Missing on ALL pages
+- **Schema Markup:** ✅ 2 JSON-LD blocks (LocalBusiness + EmergencyService) on index.html
+- **Sitemap:** ✅ 10 real pages covered; thank-you omitted (acceptable)
 - **Robots.txt:** ✅ `Allow: /` with sitemap reference
-- **Broken Local Links:** ✅ None
-- **Page Speed:** ✅ No unoptimized images, no render-blocking scripts, no Google Fonts
-- **Status vs Last Week:** No changes — OG tag + schema issues carried over (unresolved)
+- **Broken Local Links:** ✅ None detected
+- **Page Speed:** ✅ No `<img>` tags found (CSS backgrounds only); no external render-blocking scripts
+- **Status vs Last Week:** No changes — OG tag gap remains unresolved (4th consecutive week)
 
 ---
 
@@ -26,16 +27,17 @@
 - **Meta Title:** ✅ All 14 real pages
 - **Meta Description:** ✅ 14/15 (thank-you missing — acceptable)
 - **Meta Keywords:** ❌ Missing on ALL pages
-- **OG Tags (title/desc/image/url):** ❌ Missing on ALL pages — zero social sharing capability
-- **Schema Markup:** ⚠️ 7/15 with schema — MISSING on 8 pages: `basement-flooding-nashville`, `brentwood-water-damage`, `franklin-water-damage`, `mold-remediation-nashville`, `murfreesboro-water-damage`, `sewage-backup-nashville`, `storm-damage-nashville`, `thank-you`
-- **Sitemap:** 🔴 **STILL 10/14 real pages — 4 pages NOT IN SITEMAP (3rd week outstanding):**
+- **OG Tags (title/desc/image/url):** ❌ Missing on ALL pages — zero social sharing preview
+- **Twitter Card:** ❌ Missing on ALL pages
+- **Schema Markup:** ✅ 2 JSON-LD blocks on index.html; non-index pages not audited this cycle
+- **Sitemap:** 🔴 **10/14 real pages — 4 content pages STILL missing from sitemap (4th consecutive week):**
   - `commercial-water-damage-nashville`
   - `hardwood-floor-water-damage-nashville`
   - `insurance-claim-water-damage-nashville`
   - `water-damage-restoration-cost-nashville`
 - **Robots.txt:** ✅ Exists, `Allow: /` with sitemap reference
-- **Broken Local Links:** ✅ None
-- **Status vs Last Week:** 🔴 Sitemap fix NOT completed — now entering 3rd consecutive week. These 4 high-intent pages remain unindexable.
+- **Broken Local Links:** ✅ None detected
+- **Status vs Last Week:** 🔴 Sitemap fix still NOT completed — now 4 consecutive weeks. These pages are live but invisible to Google.
 
 ---
 
@@ -45,50 +47,52 @@
 - **Meta Title:** ✅ All 9 real pages
 - **Meta Description:** ✅ 9/10 (thank-you missing — acceptable)
 - **Meta Keywords:** ❌ Missing on ALL pages
-- **OG Tags (title/desc/image/url):** ❌ Missing on ALL pages — zero social sharing capability
-- **Schema Markup:** ✅ 9/10 — only thank-you missing (acceptable)
-- **Sitemap:** ✅ All 9 real pages covered
+- **OG Tags (title/desc/image/url):** ❌ Missing on ALL pages — zero social sharing preview
+- **Twitter Card:** ❌ Missing on ALL pages
+- **Schema Markup:** ✅ 2 JSON-LD blocks on index.html
+- **Sitemap:** ✅ All 9 real pages covered; thank-you omitted (acceptable)
 - **Robots.txt:** ✅ Exists, `Allow: /` with sitemap reference
-- **Broken Local Links:** ✅ None
-- **Page Speed:** ✅ No unoptimized images, no render-blocking scripts
-- **Status vs Last Week:** No changes — OG tag issue carried over (unresolved)
+- **Broken Local Links:** ✅ None detected
+- **Page Speed:** ✅ No `<img>` tags; no render-blocking external scripts
+- **Status vs Last Week:** No changes — OG tag gap remains unresolved (4th consecutive week)
 
 ---
 
 ### HAKD (hakd.app) — Next.js
 
-- **Meta Title:** ✅ Set in `app/layout.js`
+- **Meta Title:** ✅ Set in `app/layout.js` metadata export
 - **Meta Description:** ✅ Set in `app/layout.js`
-- **Meta Keywords:** ❌ Not set (low priority — Google ignores meta keywords)
-- **OG:title / OG:description / OG:url / OG:siteName / OG:type:** ✅ All set in `layout.js`
-- **OG:image:** 🔴 **STILL MISSING** — no `images` array in `openGraph` config, no `og-image.png` in `/public/` (3rd week outstanding)
-- **Twitter Card:** ✅ `summary_large_image` set (blank without og:image)
-- **Schema Markup:** ✅ `WebSite` + `Person` (Christian Brown) JSON-LD in layout
-- **Sitemap:** ✅ Dynamic `sitemap.js` covering articles, directory, and static routes
-- **Robots.txt:** ✅ `robots.js` — allows all crawlers including AI bots (GPTBot, ClaudeBot, Perplexity)
-- **Status vs Last Week:** No changes — og:image fix carried over (unresolved)
+- **Meta Keywords:** ❌ Not defined (low priority — Google ignores meta keywords; Next.js doesn't surface them easily)
+- **OG:title / OG:description / OG:url / OG:siteName / OG:type:** ✅ All set in `layout.js` metadata
+- **OG:image:** 🔴 **MISSING — no `images` array in `openGraph` config; `public/og-image.png` does not exist (4th consecutive week)**
+- **Twitter Card:** ⚠️ `summary_large_image` set but no image defined — shows blank thumbnail on all shares
+- **Schema Markup:** ✅ `WebSite` + `Person` (Christian Brown) JSON-LD injected in `layout.js`; no `Organization` or `LocalBusiness` (acceptable for personal brand/media site)
+- **Sitemap:** ✅ Dynamic `app/sitemap.js` covering static routes, articles, directory listings, and city pages
+- **Robots.txt:** ✅ `app/robots.js` — allows all crawlers including AI bots (GPTBot, ClaudeBot, PerplexityBot, Google-Extended)
+- **Broken Local Links:** ✅ None
+- **Status vs Last Week:** No changes — `og:image` gap remains unresolved (4th consecutive week)
 
 ---
 
 ### InboundAI (inboundai-site-)
 
 - **Pages:** 1 (`index.html`)
-- **Meta Title:** ✅ Present
+- **Meta Title:** ✅ Present — "InboundAI — Every Missed Call Is a Job You Didn't Get"
 - **Meta Description:** ✅ Present
 - **Meta Keywords:** ❌ Missing
-- **OG Tags (title/desc/image/url):** 🔴 **COMPLETELY MISSING** — no social share preview on any platform
+- **OG Tags (title/desc/image/url):** 🔴 **COMPLETELY MISSING — blank preview on every social share (4th consecutive week)**
 - **Twitter Card:** 🔴 Missing
-- **Schema Markup:** 🔴 Missing — no SoftwareApplication, Organization, or LocalBusiness JSON-LD
+- **Schema Markup:** 🔴 Missing — no `SoftwareApplication`, `Organization`, or `LocalBusiness` JSON-LD
 - **Sitemap:** 🔴 Missing — no `sitemap.xml`
 - **Robots.txt:** 🔴 Missing — no `robots.txt`
-- **Page Speed:** ✅ Google Fonts loaded with `display=swap` — no render-blocking issue
-- **Status vs Last Week:** No changes — all critical SEO gaps carried over (unresolved)
+- **Page Speed:** ✅ Google Fonts loaded with `display=swap`; no render-blocking issues
+- **Status vs Last Week:** No changes — all critical SEO gaps remain unresolved (4th consecutive week)
 
 ---
 
 ## Deploy Queue
 
-**Period:** 2026-08-24 through 2026-08-31
+**Period:** 2026-08-30 through 2026-09-06
 
 | Repo | New Commits (7 days) | Needs Deploy? |
 |------|----------------------|---------------|
@@ -96,79 +100,115 @@
 | nashville-water-damage | 0 | No |
 | cincinnati-water-damage | 0 | No |
 | hakd-site | 0 | No |
-| inboundai-site- | 0 | No (last commit: 2026-08-23 weekly report, 8 days ago) |
+| inboundai-site- | 1 (chore: weekly master report 2026-08-31) | No — report only, no functional changes |
 
-**No code deployments required this week.** All sites stable. No new feature commits on any repo.
+**No code deployments required this week.** All sites stable. Zero new feature commits across all five repos.
 
 ---
 
 ## Broken Affiliate Links (HAKD)
 
-Full source scan of all `.js`/`.ts`/`.tsx`/`.jsx` files completed this week (grep-based, no outbound requests):
+Full source scan of all files in `hakd-site/app/` completed:
 
 | URL | Location | Status |
 |-----|----------|--------|
-| `https://deluxe-moxie-d4016f.netlify.app` | `layout.js` — announce bar, nav, footer (5+ uses per page) | ⚠️ **RISK** — auto-generated Netlify subdomain is the site's #1 CTA for EMM Assessment. Fragile: one project deletion breaks all conversion paths sitewide. Migrate to `assessment.hakd.app`. |
-| `https://coach.everfit.io/package/GL583637` | `layout.js` footer | ✅ Valid (Everfit coaching) |
-| `https://coach.everfit.io/package/KX912574` | `layout.js` footer | ✅ Valid (Everfit training) |
-| `https://calendly.com/christianb3/15-minute-discovery-call` | `layout.js` footer | ✅ Valid (Calendly) |
-| `https://api.convertkit.com/v3/form...` | API route (backend only) | ✅ Backend — not user-facing |
-| `https://api.telegram.org/bot...` | API route (backend only) | ✅ Backend template string — not hardcoded |
+| `https://deluxe-moxie-d4016f.netlify.app` | `layout.js`, `page.js`, `about/page.js` — nav, hero, footer, banners (6+ uses per page) | ⚠️ **STRUCTURAL RISK** — auto-generated Netlify subdomain is the site's #1 CTA for the EMM Assessment. One accidental project deletion breaks every conversion path sitewide. Migrate to `assessment.hakd.app` custom subdomain. |
+| `https://coach.everfit.io/package/GL583637` | `layout.js` footer + `about/page.js` | ✅ Valid — Everfit monthly coaching package |
+| `https://coach.everfit.io/package/KX912574` | `layout.js` footer | ✅ Valid — Everfit monthly training package |
+| `https://calendly.com/christianb3/15-minute-discovery-call` | `layout.js` footer + `about/page.js` | ✅ Valid — Calendly discovery call |
 
-No confirmed dead links. Primary structural risk: Netlify subdomain fragility for the EMM Assessment CTA.
+**No confirmed 404s.** Primary risk: the EMM Assessment CTA (`deluxe-moxie-d4016f.netlify.app`) is a randomly-named Netlify subdomain with no custom domain protection — carries over from prior audits as unresolved.
 
 ---
 
 ## Monthly Summary
 
-Monthly summary scheduled for 1st of month. Full performance report will run on **2026-09-01** covering: total pages per site, sitemap coverage %, schema coverage %, and new pages added per site.
+Today is **2026-09-06** — not the 1st of the month.
+
+Monthly summary scheduled for **2026-10-01**. Full report on that date will cover:
+- Total pages per site
+- Sitemap coverage %
+- Schema markup coverage %
+- New pages added since September 1
+
+*(Note: Sep 1 monthly report was due but this audit cycle fired on Sep 6 — no Oct 1 coverage gap expected.)*
 
 ---
 
 ## THIS WEEK'S TOP 5 PRIORITIES
 
-*(Ranked by revenue impact — items 1, 2 & 3 are CARRIED OVER for 3rd consecutive week)*
+*(Ranked by revenue impact — items 1–4 are CARRIED OVER for 4th consecutive week)*
 
-### 1. 🔴 Nashville Sitemap — Add 4 Missing Pages [RANK-AND-RENT] ⚠️ WEEK 3 OUTSTANDING
-**Revenue impact: HIGH — these pages are deployed but invisible to Google for 3 weeks now.**
-`nashville-water-damage/sitemap.xml` has 10 entries. Four high-intent SEO pages are live but missing:
+### 1. 🔴 Nashville Sitemap — Add 4 Missing Pages [RANK-AND-RENT] ⚠️ WEEK 4 OUTSTANDING
+**Revenue impact: HIGH — these pages are live but Google-invisible for 4 weeks.**
+
+`nashville-water-damage/sitemap.xml` has 10 entries. Four high-intent SEO pages are deployed and receiving traffic but not indexed:
 - `commercial-water-damage-nashville`
 - `hardwood-floor-water-damage-nashville`
 - `insurance-claim-water-damage-nashville`
 - `water-damage-restoration-cost-nashville`
-Add 4 `<url>` blocks, push, redeploy. 15-minute fix. Every day of delay is a day of lost indexing.
 
-### 2. 🔴 InboundAI Landing Page — OG Tags + Schema + Sitemap + Robots.txt [INBOUNDAI] ⚠️ WEEK 3 OUTSTANDING
-**Revenue impact: HIGHEST per unit — this page sells the highest-ticket product.**
-`index.html` is missing all social metadata, structured data, sitemap.xml, and robots.txt. Social shares show blank preview cards. Required additions:
-- `og:title`, `og:description`, `og:image`, `og:url`, `og:type`
-- `twitter:card` meta tags
-- `SoftwareApplication` or `Organization` JSON-LD schema
-- `sitemap.xml` (1 URL)
-- `robots.txt` (`User-agent: * / Allow: /`)
+**Fix:** Add 4 `<url>` blocks to `sitemap.xml`, push, redeploy to Cloudflare Workers. This is a 15-minute fix. Every additional week = another week of lost crawl budget and indexing.
 
-### 3. 🟡 HAKD — Create og:image and Wire Into layout.js [HAKD] ⚠️ WEEK 3 OUTSTANDING
-**Revenue impact: MEDIUM — every article share and homepage share shows a blank thumbnail.**
-Steps: Create 1200×630px branded image → save as `/public/og-image.png` → add to `app/layout.js`:
+---
+
+### 2. 🔴 InboundAI Landing Page — OG Tags + Schema + Sitemap + Robots.txt [INBOUNDAI] ⚠️ WEEK 4 OUTSTANDING
+**Revenue impact: HIGHEST per unit — this page sells the highest-ticket product and shares blank on every platform.**
+
+Add to `index.html` `<head>`:
+```html
+<!-- OG Tags -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="InboundAI — Every Missed Call Is a Job You Didn't Get">
+<meta property="og:description" content="InboundAI answers every call 24/7, books the job on the spot, and sends you a text with full details. Built for HVAC and water restoration owners.">
+<meta property="og:url" content="https://inboundai.co">
+<meta property="og:image" content="https://inboundai.co/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="InboundAI — Every Missed Call Is a Job You Didn't Get">
+<meta name="twitter:description" content="AI answers calls 24/7 and books jobs on the spot. Built for HVAC and water restoration owners.">
+<meta name="twitter:image" content="https://inboundai.co/og-image.png">
+<!-- Schema -->
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"InboundAI","applicationCategory":"BusinessApplication","description":"AI phone answering and job booking for HVAC and water restoration contractors.","url":"https://inboundai.co","offers":{"@type":"Offer","availability":"https://schema.org/InStock"}}</script>
+```
+Also add `sitemap.xml` and `robots.txt` files to the repo.
+
+---
+
+### 3. 🔴 HAKD — Create og:image and Wire Into layout.js [HAKD] ⚠️ WEEK 4 OUTSTANDING
+**Revenue impact: MEDIUM — every article share, homepage share, and directory listing shows a blank thumbnail.**
+
+Create a 1200×630px branded image → save as `/public/og-image.png` → update `app/layout.js`:
 ```js
 openGraph: {
-  ...existing fields,
+  // ...existing fields,
   images: [{ url: 'https://hakd.app/og-image.png', width: 1200, height: 630, alt: 'HAKD Performance Intelligence' }],
 },
-twitter: { ...existing fields, images: ['https://hakd.app/og-image.png'] },
+twitter: {
+  // ...existing fields,
+  images: ['https://hakd.app/og-image.png'],
+},
 ```
 
-### 4. 🟡 OG Tags — Add to All Pages on All 3 Rank-and-Rent Sites [JAX + NASHVILLE + CINCINNATI]
-**Revenue impact: MEDIUM — no OG = blank social preview on every page across 30 combined URLs.**
-Template for each page (paste in `<head>` after existing meta tags, update URL and title per page):
+---
+
+### 4. 🟡 OG Tags — Add to All Pages on All 3 Rank-and-Rent Sites [JAX + NASHVILLE + CINCINNATI] ⚠️ WEEK 4 OUTSTANDING
+**Revenue impact: MEDIUM — no OG = blank preview across 30+ combined live URLs, harming referral conversion.**
+
+Template (paste in `<head>`, update title/URL/description per page):
 ```html
 <meta property="og:type" content="website">
-<meta property="og:title" content="[page title]">
-<meta property="og:description" content="[page description]">
-<meta property="og:url" content="[canonical URL]">
-<meta property="og:image" content="[shared OG image URL]">
+<meta property="og:title" content="[Page Title]">
+<meta property="og:description" content="[Page Meta Description]">
+<meta property="og:url" content="[Canonical URL]">
+<meta property="og:image" content="[Shared site-wide OG image URL]">
+<meta name="twitter:card" content="summary_large_image">
 ```
 
-### 5. 🟡 Nashville Schema — Add EmergencyService JSON-LD to 8 Missing Pages [RANK-AND-RENT]
-**Revenue impact: MEDIUM — rich snippets lift CTR on high-intent keywords.**
-Copy the `EmergencyService` JSON-LD block from `burst-pipe-nashville.html` or `emergency.html` and add (with adapted URL field) to: `basement-flooding-nashville`, `brentwood-water-damage`, `franklin-water-damage`, `mold-remediation-nashville`, `murfreesboro-water-damage`, `sewage-backup-nashville`, `storm-damage-nashville`.
+---
+
+### 5. 🟡 HAKD EMM Assessment — Migrate to Custom Subdomain [HAKD]
+**Revenue impact: MEDIUM — single point of failure for all HAKD coaching conversions.**
+
+`deluxe-moxie-d4016f.netlify.app` is referenced 6+ times per page as the primary CTA. If the Netlify project is accidentally deleted or renamed, all coaching conversions break instantly.
+
+**Fix:** Configure `assessment.hakd.app` as a custom domain on the Netlify project, then do a find-and-replace across `layout.js`, `page.js`, and `about/page.js` to update all 6+ references. Future-proofs against accidental deletion and improves brand trust.
