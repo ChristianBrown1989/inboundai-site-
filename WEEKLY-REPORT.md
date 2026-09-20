@@ -1,196 +1,177 @@
-# Weekly Master Report — 2026-09-13
-
----
+# Weekly Master Report — 2026-09-20
 
 ## Site Audit Results
 
-### Jacksonville Water Damage Pros
-**Pages:** 11 HTML files (index, emergency, 5 service pages, 3 city pages, thank-you)
-**Deployment:** Cloudflare Workers (wrangler.toml)
+---
 
-| Check | Status |
-|---|---|
-| Title tags | ✅ All 10 indexable pages have titles |
-| Meta descriptions | ✅ All 10 indexable pages (thank-you missing, has noindex) |
-| Meta keywords | ❌ Missing on all pages (low priority — Google ignores) |
-| OG tags (og:title/desc/image/url) | ❌ **MISSING on all 11 pages** |
-| sitemap.xml | ✅ Exists, all 10 indexable pages listed |
-| robots.txt | ✅ Exists, correct configuration |
-| Schema markup | ✅ LocalBusiness + EmergencyService + FAQPage on index.html |
-| Broken local links | ✅ None found |
-| Page speed | ✅ No render-blocking scripts; no images on site (conversion gap) |
+### Jacksonville Water Damage Pros (jacksonvillewaterdamagepros.com)
+**11 pages | Cloudflare Workers**
 
-**Schema issues:** `image` property missing from LocalBusiness schema (required for Google rich results). `streetAddress` absent from PostalAddress.
+| Check | Status | Notes |
+|---|---|---|
+| Broken links | ✅ PASS | All local refs resolve |
+| Meta title | ✅ PASS | All 11 pages |
+| Meta description | ⚠️ ISSUE | Missing on thank-you.html (noindexed — low priority) |
+| Meta keywords | ❌ FAIL | Missing on ALL 11 pages |
+| OG tags | ❌ FAIL | ALL 4 OG tags missing on ALL 11 pages |
+| sitemap.xml | ✅ PASS | Exists, covers all 10 indexable pages |
+| robots.txt | ✅ PASS | Exists, allows all crawlers |
+| Schema markup | ⚠️ ISSUE | index.html has rich LocalBusiness + FAQPage schema (PASS); sewage-backup-jacksonville.html has ZERO schema (only content page missing it) |
+| Page speed | ✅ PASS | No images, no external JS — excellent |
 
-**Internal linking:** `emergency.html` is a near-orphan — only linked from index.html, not from any service/city pages.
-
-**Git log (last 7 days):** No commits.
+**Action needed:** Add OG tags to all pages; add JSON-LD schema to sewage-backup-jacksonville.html
 
 ---
 
-### Nashville Water Damage Pros
-**Pages:** 15 HTML files (index, emergency, 7 service pages, 3 city pages, thank-you)
-**Deployment:** Cloudflare Workers (wrangler.toml)
+### Nashville Water Damage Pros (nashvillewaterdamagepros.com)
+**15 pages | Cloudflare Workers**
 
-| Check | Status |
-|---|---|
-| Title tags | ✅ All pages present (all exceed 60 chars — phone # in title eating space) |
-| Meta descriptions | ✅ Present on 14/15 (thank-you missing, has noindex). 5 pages over 160 chars. |
-| Meta keywords | ❌ Missing on all pages |
-| OG tags (og:title/desc/image/url) | ❌ **MISSING on all 15 pages** |
-| sitemap.xml | ⚠️ **Exists but 4 new pages are MISSING** |
-| robots.txt | ✅ Exists, correct configuration |
-| Schema markup | ✅ EmergencyService + FAQPage on index.html; 7 inner pages lack any schema |
-| Broken local links | ✅ None found |
-| Page speed | ✅ No render-blocking scripts; no images on site |
+| Check | Status | Notes |
+|---|---|---|
+| Broken links | ✅ PASS | All local refs resolve |
+| Meta title | ✅ PASS | All 15 pages |
+| Meta description | ⚠️ ISSUE | Missing on thank-you.html (noindexed) |
+| Meta keywords | ❌ FAIL | Missing on ALL 15 pages |
+| OG tags | ❌ FAIL | ALL 4 OG tags missing on ALL 15 pages |
+| sitemap.xml | ❌ FAIL | Exists but MISSING 4 indexable pages: commercial-water-damage-nashville, hardwood-floor-water-damage-nashville, insurance-claim-water-damage-nashville, water-damage-restoration-cost-nashville |
+| robots.txt | ✅ PASS | Exists, allows all crawlers |
+| Schema markup | ✅ PASS | EmergencyService + FAQPage on index.html; inner pages also have schemas |
+| Page speed | ✅ PASS | No images, no external JS |
+| Internal linking | ⚠️ ISSUE | 4 newest pages not linked from nav/footer — isolated from main link graph |
 
-**Critical sitemap gap:** 4 high-value pages added in the last commit are NOT in sitemap.xml:
-- `commercial-water-damage-nashville.html`
-- `hardwood-floor-water-damage-nashville.html`
-- `insurance-claim-water-damage-nashville.html`
-- `water-damage-restoration-cost-nashville.html`
-
-These pages will not be reliably crawled or indexed until the sitemap is updated.
-
-**Git log (last 7 days):** No commits.
+**Action needed:** Add 4 missing pages to sitemap.xml; add OG tags; add internal links to newer pages
 
 ---
 
-### Cincinnati Water Damage Pros
-**Pages:** 10 HTML files (index, emergency, 5 service pages, 2 city pages, thank-you)
-**Deployment:** Cloudflare Workers (wrangler.toml)
+### Cincinnati Water Damage Pros (cincinnatiwaterdamagepros.com)
+**10 pages | Cloudflare Workers**
 
-| Check | Status |
-|---|---|
-| Title tags | ✅ All pages present (all exceed 60 chars) |
-| Meta descriptions | ✅ Present on 9/10 (thank-you missing). 5 pages over 160 chars. |
-| Meta keywords | ❌ Missing on all pages |
-| OG tags (og:title/desc/image/url) | ❌ **MISSING on all 10 pages** |
-| sitemap.xml | ✅ Exists, covers all 9 indexable pages |
-| robots.txt | ✅ Exists, correct configuration |
-| Schema markup | ✅ EmergencyService + FAQPage on index.html |
-| Broken local links | ✅ None found |
-| Page speed | ✅ No render-blocking scripts; no images on site |
+| Check | Status | Notes |
+|---|---|---|
+| Broken links | ✅ PASS | All local refs resolve |
+| Meta title | ✅ PASS | All 10 pages |
+| Meta description | ✅ PASS | All indexable pages |
+| Meta keywords | ❌ FAIL | Missing on ALL 10 pages |
+| OG tags | ❌ FAIL | ALL 4 OG tags missing on ALL 10 pages |
+| sitemap.xml | ✅ PASS | Exists, covers all 9 indexable pages |
+| robots.txt | ✅ PASS | Exists, allows all crawlers |
+| Schema markup | ✅ PASS | Rich EmergencyService + FAQPage on index.html (minor HTML microdata bug on line 112) |
+| Page speed | ✅ PASS | No images, no external JS |
+| **CRITICAL: Nashville copy bug** | 🚨 CRITICAL | 7 instances of wrong city/state text on live pages |
 
-**🚨 CRITICAL COPY BUG — Nashville text still in Cincinnati site:**
-- `index.html` line 138: "60-Minute Response · **Nashville** & Surrounding Areas" (hero badge)
-- `index.html` line 230: "Why **Nashville** Trusts Us"
-- `index.html` line 232: "treat every **Nashville** homeowner..."
-- `index.html` line 274: "We're a **Nashville** company. We live here too..."
-- `index.html` line 321: "Real **Nashville** Homeowners" (testimonials heading)
-- `emergency.html` H1: "24/7 Emergency Water Damage Response in **Nashville**"
+**Nashville contamination details:**
+- `index.html` line 138: hero badge says "Nashville & Surrounding Areas"
+- `index.html` line 230: section "Why **Nashville** Trusts Us"
+- `index.html` line 232: body copy "treat every **Nashville** homeowner"
+- `index.html` line 260: "approved by every major insurance carrier in **Tennessee**" (should be Ohio)
+- `index.html` line 274: "We're a **Nashville** company"
+- `index.html` line 321: testimonials "Real **Nashville** Homeowners"
+- `emergency.html` line 48: H1 "24/7 Emergency Water Damage Response in **Nashville**"
 
-This is actively harming trust (visitors see wrong city), sending mixed location signals to Google, and the emergency page H1 is optimized for Nashville, not Cincinnati.
-
-**Git log (last 7 days):** No commits. Site last updated ~6 months ago (March 2026).
+**Action needed (URGENT):** Fix all 7 Nashville copy instances in index.html and emergency.html
 
 ---
 
 ### HAKD (hakd.app)
-**Pages:** Next.js app — 4 static routes + dynamic article/directory/city/category routes (126+ programmatic SEO pages)
-**Deployment:** Vercel (Next.js)
+**Next.js App Router | Vercel**
 
-| Check | Status |
-|---|---|
-| Title tags | ✅ All pages — dynamic generation via metadata exports |
-| Meta descriptions | ✅ All pages — dynamic generation |
-| Meta keywords | N/A — Next.js App Router does not use keywords meta |
-| OG tags (og:title/desc) | ✅ Present on all pages |
-| **og:image** | ❌ **MISSING on all pages — /public/og-image.png does not exist** |
-| og:url / canonical | ✅ Present on all pages |
-| sitemap.xml | ✅ Dynamic via app/sitemap.js |
-| robots.txt | ✅ Dynamic via app/robots.js |
-| Schema markup | ✅ WebSite, Person, Article, BreadcrumbList, FAQPage, ItemList |
-| Broken local links | ❌ **3 broken category links on homepage (→ 404)** |
+| Check | Status | Notes |
+|---|---|---|
+| Broken links | ⚠️ ISSUE | /public/og-image.png does not exist |
+| Meta title | ✅ PASS | Set in layout.js + per-page metadata |
+| Meta description | ✅ PASS | Set globally and per-page (articles pull from Supabase) |
+| Meta keywords | ❌ FAIL | Not set anywhere in codebase |
+| og:title | ✅ PASS | Set in layout openGraph |
+| og:description | ✅ PASS | Set in layout openGraph |
+| og:url | ✅ PASS | Set in layout + per-page |
+| og:image | ❌ FAIL | Not set in any metadata object; og-image.png also missing from /public/ |
+| sitemap.xml | ✅ PASS | Dynamic Next.js sitemap covers all routes + Supabase-driven articles/listings |
+| robots.txt | ✅ PASS | Dynamic robots.js, allows all content bots |
+| Schema markup | ⚠️ ISSUE | WebSite + Person schema: PASS. Article/FAQ/Breadcrumb: PASS. LocalBusiness/Organization top-level: FAIL |
+| Page speed | ✅ PASS | No img tags, no external scripts; minor: unused Google Fonts preconnect links in layout.js |
+| **Security: Hardcoded API key** | 🚨 SECURITY | ConvertKit API key hardcoded in app/api/subscribe/route.js — must move to env var |
 
-**🚨 CRITICAL BUG — 3 broken homepage category links:**
-In `app/page.js` CATEGORIES array, 3 slugs don't match actual routes:
-- `'training'` → should be `'training-science'` (link sends to 404)
-- `'wearables'` → should be `'wearables-hrv'` (link sends to 404)
-- `'mental'` → should be `'mental-performance'` (link sends to 404)
-
-**🚩 FLAGGED: Primary CTA uses staging/dev URL**
-`https://deluxe-moxie-d4016f.netlify.app` appears 10+ times across layout.js, page.js, about/page.js, articles pages, and directory pages as the EMM Assessment CTA link. This is an auto-generated Netlify staging subdomain. If the project is redeployed or deleted, every CTA on the site breaks. Should be replaced with a custom domain (e.g., `assessment.hakd.app`).
-
-**Git log (last 7 days):** No commits.
+**Action needed:** Create og-image.png; add og:image to layout.js; move ConvertKit API key to env var; add Organization JSON-LD to homepage
 
 ---
 
-### InboundAI (inboundai site)
-**Pages:** 1 HTML file (single-page site, index.html)
-**Deployment:** Static (Cloudflare or similar)
+### InboundAI (inboundai-site-)
+**Static HTML single-page | Cloudflare Workers**
 
-| Check | Status |
-|---|---|
-| Title tag | ✅ Present (62 chars) |
-| Meta description | ✅ Present (157 chars) |
-| Meta keywords | ❌ Missing |
-| OG tags (og:title/desc/image/url) | ❌ **ALL MISSING** |
-| sitemap.xml | ❌ **MISSING** |
-| robots.txt | ❌ **MISSING** |
-| Schema markup | ❌ **NONE** (FAQPage, LocalBusiness/Service opportunities) |
-| Broken local links | ⚠️ Terms of Service link is `href="#"` (dead promise) |
-| Page speed | ⚠️ Google Fonts stylesheet is render-blocking; missing preconnect to fonts.gstatic.com |
+| Check | Status | Notes |
+|---|---|---|
+| Broken links | ❌ FAIL | Terms of Service link (line 1118) is href="#" — no ToS page exists |
+| Meta title | ✅ PASS | Line 6: strong title tag |
+| Meta description | ✅ PASS | Line 7: 157 chars, keyword-rich |
+| Meta keywords | ❌ FAIL | Missing entirely |
+| OG tags | ❌ FAIL | ALL 4 OG tags missing |
+| sitemap.xml | ❌ FAIL | Does not exist |
+| robots.txt | ❌ FAIL | Does not exist |
+| Schema markup | ❌ FAIL | ZERO JSON-LD schema anywhere — FAQPage, Service, Organization all missing despite content existing for all three |
+| Page speed | ⚠️ ISSUE | Render-blocking Google Fonts CSS (line 9); missing fonts.gstatic.com preconnect; no favicon declared |
 
-**Biggest missed opportunities:**
-- 7 existing FAQ items — zero effort FAQPage schema would generate SERP rich results
-- Service/professional schema (phone (832) 281-5911, service type) completely absent
-- No OG image means zero visual presence when link is shared
-
-**Git log (last 7 days):** 1 commit — `cc67362 chore: weekly master report 2026-09-06` (last week's report only, no content changes).
+**Action needed:** Add OG tags, sitemap, robots.txt, JSON-LD schema; fix render-blocking fonts; create ToS page or remove link
 
 ---
 
 ## Deploy Queue
 
-| Repo | Commits (last 7 days) | Needs Deploy? |
-|---|---|---|
-| jacksonville-water-damage | 0 | No |
-| nashville-water-damage | 0 | No |
-| cincinnati-water-damage | 0 | No |
-| hakd-site | 0 | No |
-| inboundai-site- | 1 (this report) | Yes — push this report |
+**Git commits in the last 7 days (since 2026-09-13):**
 
-No revenue-affecting code changes were deployed to any site in the past 7 days.
+| Repo | New Commits | Deployment Needed? |
+|---|---|---|
+| jacksonville-water-damage | None (last: 2026-03-24) | No |
+| nashville-water-damage | None (last: 2026-03-25) | No |
+| cincinnati-water-damage | None (last: 2026-03-24) | No |
+| hakd-site | None (last: 2026-03-25) | No |
+| inboundai-site- | 1 commit — `b11fc87 chore: weekly master report 2026-09-13` (last week's report only) | No (report file only) |
+
+**No active deployments needed this week.** All 5 repos have been dormant for ~6 months. Once Cincinnati copy bug fix and other changes are committed, those repos will need Cloudflare Workers re-deployment.
 
 ---
 
 ## Broken Affiliate Links (HAKD)
 
-No classic dead affiliate links found. However, one significant URL issue flagged:
+External href links found in hakd-site:
 
-| URL | Occurrences | Status | Action |
+| URL | Location | Status | Issue |
 |---|---|---|---|
-| `https://deluxe-moxie-d4016f.netlify.app` | 10+ (layout, home, about, articles, directory) | ⚠️ Staging/dev URL used as primary CTA in production | Replace with custom domain |
-| `https://coach.everfit.io/package/GL583637` | 3 (footer, about, article sidebar) | ✅ Appears valid | Verify link is still live |
-| `https://coach.everfit.io/package/KX912574` | 2 (footer, article sidebar) | ✅ Appears valid | Verify link is still live |
-| `https://calendly.com/christianb3/15-minute-discovery-call` | 2 (footer, about) | ✅ Appears valid | Verify booking availability |
+| `https://deluxe-moxie-d4016f.netlify.app` | layout.js nav + CTA, page.js hero/banner/about, articles/[slug] sidebar, about/page.js | 🚨 FLAGGED | **Netlify STAGING URL used as primary EMM Assessment CTA across the entire production site.** Visitors clicking the main CTA could land on a staging/dev build instead of a live experience. Replace with the real production URL. |
+| `https://coach.everfit.io/package/GL583637` | layout.js footer, about/page.js | ⚠️ UNVERIFIED | Monthly Coaching — $250/mo. URL appears well-formed but not live-tested. |
+| `https://coach.everfit.io/package/KX912574` | layout.js footer, articles/[slug] sidebar | ⚠️ UNVERIFIED | Monthly Training — $80/mo. URL appears well-formed but not live-tested. |
+| `https://calendly.com/christianb3/15-minute-discovery-call` | layout.js footer, about/page.js | ⚠️ UNVERIFIED | Discovery Call booking. URL appears well-formed but not live-tested. |
+
+**Critical finding:** The primary CTA throughout HAKD points to a Netlify staging URL (`deluxe-moxie-d4016f.netlify.app`), not a production domain. This is the same issue flagged in last week's report — still unresolved.
 
 ---
 
 ## Monthly Summary
 
-Monthly summary scheduled for 1st of month. (Today is 2026-09-13.)
+Monthly summary scheduled for 1st of month. *(Today is 2026-09-20)*
 
 ---
 
 ## THIS WEEK'S TOP 5 PRIORITIES
 
-**1. 🚨 Fix Cincinnati "Nashville" copy-paste bug** *(Revenue impact: HIGH — rank-and-rent)*
-The Cincinnati emergency page H1 and 5 body copy instances say "Nashville." This is actively suppressing Cincinnati rankings, confusing visitors, and undermining the trust signal of a local service business. Fix is a 5-minute find-replace: 6 lines across 2 files. Every day this stays live is a day the site fails to convert Cincinnati visitors.
+**Ranked by revenue impact:**
 
-**2. 🚨 Fix HAKD broken category links on homepage** *(Revenue impact: HIGH — HAKD)*
-3 of 7 category navigation links on the hakd.app homepage go to 404 pages. Any visitor clicking Training Science, Wearables/HRV, or Mental Performance immediately hits a dead end. Fix is a 3-line code change in `app/page.js`. Push and redeploy to Vercel.
+### 1. 🚨 Fix Cincinnati "Nashville" Copy Bug — Cincinnati Water Damage Pros
+**Revenue impact: HIGH** — Live rank-and-rent pages that say "Nashville company" and "Tennessee" instead of Ohio destroy local SEO credibility with both visitors and Google. Fix 7 instances across `index.html` and `emergency.html`. Estimated: 15 minutes. Deploy to Cloudflare Workers immediately.
 
-**3. Add OG tags to all rank-and-rent sites** *(Revenue impact: MEDIUM — all 3 sites)*
-Jacksonville, Nashville, and Cincinnati have zero Open Graph tags. Any future paid social campaign, local Facebook ad, or word-of-mouth share produces a blank link preview card. Adding `og:title`, `og:description`, `og:image`, and `og:url` to all pages in all 3 sites takes ~1 hour with a script and dramatically improves click-through on any shared URL.
+**Files:** `cincinnati-water-damage/index.html` (lines 138, 230, 232, 260, 274, 321) and `cincinnati-water-damage/emergency.html` (line 48)
 
-**4. Update Nashville sitemap + add 4 missing pages** *(Revenue impact: MEDIUM — rank-and-rent)*
-4 high-value Nashville pages (cost guide, insurance claims, commercial, hardwood floors) added in the last commit were never added to `sitemap.xml`. Until the sitemap is updated, Google has no reliable signal to crawl or index these pages. Update sitemap.xml, push, and resubmit to Search Console.
+### 2. 🚨 Replace HAKD Staging URL with Production URL — HAKD
+**Revenue impact: HIGH** — The primary EMM Assessment CTA across the entire HAKD site (`layout.js`, `page.js`, `about/page.js`, `articles/[slug]`) points to a Netlify staging URL (`https://deluxe-moxie-d4016f.netlify.app`). Every visitor clicking the main CTA hits a staging environment. Replace with the real production URL. This is also a carryover from last week's report.
 
-**5. Replace HAKD staging URL with custom domain** *(Revenue impact: MEDIUM — HAKD)*
-`deluxe-moxie-d4016f.netlify.app` appears as the primary EMM Assessment CTA across 10+ places on hakd.app. A staging URL in production looks unprofessional in link previews, damages trust, and is a single-point-of-failure — if the Netlify project is redeployed, every CTA on the site dies. Add a custom domain to the Netlify project (e.g., `assessment.hakd.app`) and do one find-replace across the codebase.
+### 3. 🔒 Move HAKD ConvertKit API Key to Environment Variable — HAKD
+**Revenue impact: MEDIUM (security)** — The ConvertKit API key `unwsbthP07XOrlhfGdfrkg` is hardcoded in `hakd-site/app/api/subscribe/route.js`. Anyone with repo access can see and use this key. Move to `process.env.CONVERTKIT_API_KEY` and add to Vercel environment variables. Rotate the key after moving it.
+
+### 4. Add OG Tags to All 5 Sites — All Sites
+**Revenue impact: MEDIUM** — All 5 sites are completely missing `og:image` (some missing all OG tags). Every social share generates a blank preview card with no image, no description, and no branding. Batch-add OG tags to all 5 sites. HAKD also needs the `/public/og-image.png` file created. For rank-and-rent sites, create a single shared OG image per brand.
+
+### 5. Add JSON-LD Schema + Sitemap + Robots to InboundAI — InboundAI Site
+**Revenue impact: MEDIUM** — The InboundAI sales site has zero structured data despite having 7 FAQ items and full business contact info ready to mark up. Adding FAQPage + Service schema could generate SERP rich results for the highest-revenue product in the portfolio. Also needs sitemap.xml and robots.txt created (5-minute fixes).
 
 ---
 
-*Report generated: 2026-09-13 | Audited by: Claude Code (automated weekly schedule)*
+*Report generated: 2026-09-20 | Repos audited: jacksonville-water-damage, nashville-water-damage, cincinnati-water-damage, hakd-site, inboundai-site-*
